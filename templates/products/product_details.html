@@ -1,0 +1,75 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+Product Details
+{% endblock %}
+
+{% block content %}
+
+<section id="product-detail-section" class="container py-5">
+    <div class="row g-4 align-items-start">
+        <div class="col-lg-6">
+            {% include 'products/includes/productImageCarousel.html' %}
+        </div>
+
+        <!-- RIGHT: Product Details -->
+        <div class="col-lg-6">
+            <div class="product-info">
+
+                <!-- Thumbnail -->
+                <img src="{{ product.thumbnail.url }}" 
+                     class="product-thumbnail mb-3" 
+                     alt="{{ product.title }}">
+
+                <h2 class="product-title">
+                    {{ product.title }}
+                </h2>
+
+                <p class="product-desc">
+                    {{ product.desc }}
+                </p>
+
+                <h4 class="product-price">
+                    ₹ {{ product.price }}
+                </h4>
+
+                <!-- Product-level Actions -->
+                <div class="d-flex gap-2 mt-4 product-action-buttons">
+                    
+                    <a href="#" class="btn btn-primary">Add to Cart</a>
+
+                    <a href="{% url 'edit_product' product.pk %}" class="btn btn-warning">Edit Product</a>
+                    <a href="{% url 'delete_product' product.pk %}" class="btn btn-danger">Delete Product</a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+<section class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-header bg-dark text-white">
+          <h5 class="mb-0">Upload Image</h5>
+        </div>
+
+        <div class="card-body">
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="d-grid mt-3">
+              <button type="submit" class="btn btn-dark">
+                Upload
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}
