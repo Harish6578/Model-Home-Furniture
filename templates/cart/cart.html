@@ -1,62 +1,69 @@
-{% extends 'base/base.html' %}
-
-{% block title %}
-Delete Product
-{% endblock %}
+{% extends "base/base.html" %}
+{% load static %}
 
 {% block content %}
 
-<section class="container-fluid">
-    <!-- {% for item in cart_items %}
-    <div>
-        {{item}}
+<div class="container mt-4">
+  <h3 class="mb-4">Shopping Cart</h3>
+
+  <div id="cart-items">
+
+    {% for item in cart_items %}
+    <div class="cart-item">
+
+      <!-- Product Image -->
+      {% if item.product.thumbnail %}
+        <img src="{{ item.product.thumbnail.url }}"
+             class="cart-img"
+             alt="{{ item.product.title }}">
+      {% else %}
+        <div class="cart-img placeholder-img">No Image</div>
+      {% endif %}
+
+      <!-- Product Info -->
+      <div class="cart-info">
+        <h6>{{ item.product.title }}</h6>
+        <p class="text-muted">
+          ₹{{ item.product.price }} ×
+          <span id="qty-{{ item.id }}">{{ item.quantity }}</span>
+        </p>
+        <strong>
+          ₹<span id="item-total-{{ item.id }}">
+            {{ item.product.price|floatformat:0|add:item.quantity }}
+          </span>
+        </strong>
+      </div>
+
+      <!-- Quantity Buttons -->
+      <div class="qty-box">
+        <button class="qty-btn"
+                onclick="updateQty('{{ item.id }}', 'decrease')">−</button>
+
+        <span>{{ item.quantity }}</span>
+
+        <button class="qty-btn"
+                onclick="updateQty('{{ item.id }}', 'increase')">+</button>
+      </div>
+
+      <!-- Remove -->
+      <button class="remove-btn"
+              onclick="removeItem('{{ item.id }}')">
+        Remove
+      </button>
+
     </div>
-    {% endfor %} -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Furniture Shop</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+    {% empty %}
+      <p>Your cart is empty.</p>
+    {% endfor %}
 
-<h2 class="title">🪑 Furniture Shop</h2>
-
-<div class="product-list">
-
-  <div class="product-card">
-    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7" alt="">
-    <h3>Outdoor Furniture</h3>
-    <p class="price">₹48,999</p>
-    <button onclick="addToCart(1,'Outdoor Furniture',48999,'https://images.unsplash.com/photo-1586023492125-27b2c045efd7')">
-      Add to Cart
-    </button>
   </div>
 
-  <div class="product-card">
-    <img src="https://images.unsplash.com/photo-1615874959474-d609969a20ed" alt="">
-    <h3>Dining Package</h3>
-    <p class="price">₹69,999</p>
-    <button onclick="addToCart(2,'Dining Package',69999,'https://images.unsplash.com/photo-1615874959474-d609969a20ed')">
-      Add to Cart
-    </button>
-  </div>
+  <hr>
 
+  <h4 class="text-end">
+    Total: ₹ <span id="cart-total">{{ cart_total }}</span>
+  </h4>
 </div>
 
-<hr>
-
-<h2>🛒 Shopping Cart</h2>
-<div id="cart"></div>
-
-<h3 class="total">Total: ₹<span id="total">0</span></h3>
-
-<script src="script.js"></script>
-</body>
-</html>
-
-    
-</section>
-
+<script src="{% static 'js/cart.js' %}"></script>
 {% endblock %}
