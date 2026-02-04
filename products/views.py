@@ -42,6 +42,7 @@ from django.views.generic import ( CreateView, DetailView,
                                    UpdateView, DeleteView )
 
 # ListView has already been implemented using a function above : productsView()
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class CreateProduct(CreateView):
     model = Product
@@ -50,6 +51,10 @@ class CreateProduct(CreateView):
     # redirection url for successful creation of resource
     def get_success_url(self):
         return reverse('product_details', kwargs={'pk':self.object.pk})
+    def get(self, request, *args, **kwargs):
+        if not request.user.is_staff:
+            return redirect('home_page')
+        return super().get(request, *args, **kwargs)
 
 # -------
 from django.views.generic.edit import FormMixin

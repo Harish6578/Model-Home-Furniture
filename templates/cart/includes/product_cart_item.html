@@ -1,4 +1,5 @@
-<div class="cart-item card shadow-sm">
+<div class="cart-item card shadow-sm"
+     data-product-id="{{ item.product.id }}">
 
     <div class="row g-0 align-items-center">
 
@@ -14,7 +15,7 @@
 
                 <h5 class="cart-product-title">
                     <a href="{% url 'product_details' item.product.pk %}" class="no-decoration">
-                    {{ item.product.title }}
+                        {{ item.product.title }}
                     </a>
                 </h5>
 
@@ -28,13 +29,17 @@
 
                 <div class="cart-controls">
 
-                    <button class="btn btn-outline-secondary btn-sm">-</button>
+                    <!-- MINUS -->
+                    <button class="btn btn-outline-secondary btn-sm qty-minus">-</button>
 
-                    <span class="cart-qty">{{ item.quantity }}</span>
+                    <!-- QTY -->
+                    <span class="cart-qty qty">{{ item.quantity }}</span>
 
-                    <button class="btn btn-outline-secondary btn-sm">+</button>
+                    <!-- PLUS -->
+                    <button class="btn btn-outline-secondary btn-sm qty-plus">+</button>
 
-                    <button class="btn btn-danger btn-sm ms-3">
+                    <!-- REMOVE -->
+                    <button class="btn btn-danger btn-sm ms-3 remove-item">
                         Remove
                     </button>
 
@@ -44,7 +49,7 @@
         </div>
 
         <!-- Subtotal -->
-        <div class="col-md-3 text-end cart-subtotal">
+        <div class="col-md-3 text-end cart-subtotal subtotal">
             ₹{{ item.subtotal }}
         </div>
 
