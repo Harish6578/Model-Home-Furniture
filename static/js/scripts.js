@@ -56,3 +56,7 @@ products_container.addEventListener('click', async function (event) {
         btn.innerText = "Add to Cart";
     }
 });
+
+
+
+

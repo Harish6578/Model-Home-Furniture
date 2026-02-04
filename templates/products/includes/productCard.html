@@ -1,3 +1,136 @@
+
+<style>
+    /* ===== PRODUCT CARD BASE ===== */
+.product-card {
+    position: relative;
+    border: none !important;
+    border-radius: 18px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #ffffff, #f7f9ff);
+    transition: 0.45s ease;
+}
+
+/* Gradient border illusion */
+.product-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1.5px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #f5b193, #fd3503);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+}
+
+/* Hover lift */
+.product-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 45px rgba(37, 117, 252, 0.25);
+}
+
+/* ===== PRODUCT IMAGE ===== */
+.product-thumb {
+    height: 210px;
+    object-fit: cover;
+    transition: 0.5s ease;
+}
+
+/* Zoom image on hover */
+.product-card:hover .product-thumb {
+    transform: scale(1.12);
+}
+
+/* Placeholder image */
+.placeholder-img {
+    height: 210px;
+    background: repeating-linear-gradient(
+        45deg,
+        #f1f3ff,
+        #f1f3ff 10px,
+        #e6e9ff 10px,
+        #e6e9ff 20px
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f1540c;
+    font-weight: 600;
+}
+
+/* ===== CARD BODY ===== */
+.product-card .card-body {
+    padding: 18px;
+}
+
+/* Title */
+.product-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #2c2c54;
+    transition: 0.3s;
+}
+
+.product-card:hover .product-title {
+    color: #2575fc;
+}
+
+/* Description */
+.product-desc {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 12px;
+}
+
+/* Price */
+.product-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: brown;
+}
+
+/* ===== BUTTONS ===== */
+.product-card .btn {
+    border-radius: 30px;
+    transition: 0.35s ease;
+}
+
+/* Add to cart */
+.product-card .btn-outline-danger {
+    border-width: 2px;
+    font-weight: 500;
+}
+
+.product-card .btn-outline-danger:hover {
+    background: linear-gradient(135deg, #fb5400, #fc5d02);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 0 18px rgba(167, 110, 40, 0.6);
+}
+
+/* Disabled */
+.product-card .btn-secondary {
+    border-radius: 30px;
+    opacity: 0.8;
+}
+
+/* ===== LINK FIX ===== */
+.no-decoration {
+    text-decoration: none;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 576px) {
+    .product-thumb,
+    .placeholder-img {
+        height: 180px;
+    }
+}
+
+</style>
 <div class="card product-card h-100 shadow-sm" data-product-id = "{{product.id}}">
 
     {% if product.thumbnail %}
@@ -28,7 +161,7 @@
             </div>
 
             {% if product.stock > 0 %}
-                <button class="btn btn-sm btn-outline-success w-100 add-to-cart">
+                <button class="btn btn-sm btn-outline-danger w-100 add-to-cart">
                     Add to Cart
                 </button>
             {% else %}

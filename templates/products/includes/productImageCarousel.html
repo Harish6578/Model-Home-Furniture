@@ -8,10 +8,10 @@
 
         {% for image in product.images.all %}
         <div class="carousel-item {% if forloop.first %}active{% endif %}">
-
+{% if user.is_staff %}
             <!-- Image-level Actions -->
             <a href="{% url 'edit_prod_image' image.pk %}"
-               class="btn btn-sm btn-outline-light image-btn image-btn-left">
+               class="btn btn-sm btn-outline-secondary image-btn image-btn-left">
                 Edit
             </a>
 
@@ -19,7 +19,7 @@
                class="btn btn-sm btn-outline-danger image-btn image-btn-right">
                 Delete
             </a>
-
+{% endif %}
             <img src="{{ image.img.url }}"
                  class="d-block w-100 product-main-img"
                  alt="{{ product.title }}">

@@ -1,69 +1,67 @@
-{% extends "base/base.html" %}
-{% load static %}
+
+{% extends 'base/base.html' %}
+
+{% block title %}My Cart{% endblock %}
 
 {% block content %}
+{% csrf_token %}
+<section id="cart-page" class="container py-5"
+data-plus-url="{% url 'increase_cart_item' %}"
+data-minus-url="{% url 'decrease_cart_item' %}"
+data-remove-url="{% url 'remove_cart_item' %}">
 
-<div class="container mt-4">
-  <h3 class="mb-4">Shopping Cart</h3>
+    <h2 class="cart-title">🛒 My Cart</h2>
 
-  <div id="cart-items">
+    {% if cart_items %}
 
-    {% for item in cart_items %}
-    <div class="cart-item">
+    <div class="row">
 
-      <!-- Product Image -->
-      {% if item.product.thumbnail %}
-        <img src="{{ item.product.thumbnail.url }}"
-             class="cart-img"
-             alt="{{ item.product.title }}">
-      {% else %}
-        <div class="cart-img placeholder-img">No Image</div>
-      {% endif %}
+        <!-- LEFT: items -->
+        <div class="col-lg-8 cart-items">
 
-      <!-- Product Info -->
-      <div class="cart-info">
-        <h6>{{ item.product.title }}</h6>
-        <p class="text-muted">
-          ₹{{ item.product.price }} ×
-          <span id="qty-{{ item.id }}">{{ item.quantity }}</span>
-        </p>
-        <strong>
-          ₹<span id="item-total-{{ item.id }}">
-            {{ item.product.price|floatformat:0|add:item.quantity }}
-          </span>
-        </strong>
-      </div>
+            {% for item in cart_items %}
+                {% include 'cart/includes/product_cart_item.html' %}
+            {% endfor %}
 
-      <!-- Quantity Buttons -->
-      <div class="qty-box">
-        <button class="qty-btn"
-                onclick="updateQty('{{ item.id }}', 'decrease')">−</button>
+        </div>
 
-        <span>{{ item.quantity }}</span>
+        <!-- RIGHT: summary -->
+        <div class="col-lg-4">
 
-        <button class="qty-btn"
-                onclick="updateQty('{{ item.id }}', 'increase')">+</button>
-      </div>
+            <div class="cart-summary card shadow-sm sticky-top">
+                <div class="card-body">
 
-      <!-- Remove -->
-      <button class="remove-btn"
-              onclick="removeItem('{{ item.id }}')">
-        Remove
-      </button>
+                    <h5 class="summary-title">Order Summary</h5>
+
+                    <div class="summary-row">
+                        <span>Total Items</span>
+                        <span>{{ total_quantity }}</span>
+                    </div>
+
+                    <div class="summary-row total">
+                        <span>Total Price</span>
+                        <span>₹{{ total_price }}</span>
+                    </div>
+
+                    <hr>
+
+                    <a href="#" class="btn btn-warning w-100 fw-bold">
+                        Proceed to Checkout
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
 
     </div>
-    {% empty %}
-      <p>Your cart is empty.</p>
-    {% endfor %}
 
-  </div>
+    {% else %}
 
-  <hr>
+        {% include 'cart/includes/empty_cart.html' %}
 
-  <h4 class="text-end">
-    Total: ₹ <span id="cart-total">{{ cart_total }}</span>
-  </h4>
-</div>
+    {% endif %}
 
-<script src="{% static 'js/cart.js' %}"></script>
+</section>
+
 {% endblock %}
