@@ -6,6 +6,184 @@ Order Details - Order #{{ order.id }}
 {% endblock %}
 
 {% block content %}
+<style>
+    /* ==================================
+   ORDER DETAILS PAGE
+================================== */
+
+/* Main container */
+.container {
+    max-width: 1000px !important;
+}
+
+/* Page title */
+.container > h2 {
+    font-weight: 600 !important;
+    color: #2c3e50 !important;
+    margin-bottom: 10px !important;
+}
+
+/* Divider */
+.container > hr {
+    border-top: 2px solid #e5e5e5 !important;
+    margin-bottom: 25px !important;
+}
+
+/* ==================================
+   COMMON CARD STYLES
+================================== */
+
+.container .card {
+    border: none !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08) !important;
+    overflow: hidden !important;
+}
+
+/* Card headers */
+.container .card .card-header {
+    font-weight: 500 !important;
+    font-size: 15px !important;
+    padding: 14px 18px !important;
+}
+
+/* Summary header */
+.container .card .bg-primary {
+    background: linear-gradient(135deg, #0d6efd, #0b5ed7) !important;
+}
+
+/* Address header */
+.container .card .bg-success {
+    background: linear-gradient(135deg, #198754, #20c997) !important;
+}
+
+/* Items header */
+.container .card .bg-secondary {
+    background: linear-gradient(135deg, #6c757d, #495057) !important;
+}
+
+/* Card body */
+.container .card .card-body {
+    padding: 20px !important;
+}
+
+/* Paragraph text */
+.container .card .card-body p {
+    font-size: 14px !important;
+    color: #555 !important;
+    margin-bottom: 8px !important;
+}
+
+.container .card .card-body p strong {
+    color: #000 !important;
+}
+
+/* ==================================
+   ALERT
+================================== */
+
+.container .alert {
+    border-radius: 8px !important;
+    font-size: 14px !important;
+}
+
+/* ==================================
+   ORDER ITEMS TABLE
+================================== */
+
+.container .table {
+    margin-bottom: 0 !important;
+}
+
+/* Table header */
+.container .table thead th {
+    background-color: #f1f3f5 !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #333 !important;
+    border-bottom: 2px solid #dee2e6 !important;
+}
+
+/* Table body */
+.container .table tbody td {
+    font-size: 13px !important;
+    color: #444 !important;
+    vertical-align: middle !important;
+}
+
+/* Product link */
+.container .table tbody a {
+    color: #0d6efd !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+}
+
+.container .table tbody a:hover {
+    text-decoration: underline !important;
+}
+
+/* Price columns */
+.container .table tbody td:nth-child(3),
+.container .table tbody td:nth-child(4) {
+    font-weight: 600 !important;
+}
+
+/* ==================================
+   MEDIA QUERIES
+================================== */
+
+@media (max-width: 768px) {
+
+    /* Reduce padding */
+    .container .card .card-body {
+        padding: 15px !important;
+    }
+
+    /* Stack table */
+    .container .table thead {
+        display: none !important;
+    }
+
+    .container .table tbody tr {
+        display: block !important;
+        margin-bottom: 15px !important;
+        border-bottom: 1px solid #e5e5e5 !important;
+    }
+
+    .container .table tbody td {
+        display: flex !important;
+        justify-content: space-between !important;
+        padding: 8px 10px !important;
+        font-size: 13px !important;
+    }
+
+    .container .table tbody td::before {
+        content: attr(data-label) !important;
+        font-weight: 600 !important;
+        color: #000 !important;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Title size */
+    .container > h2 {
+        font-size: 20px !important;
+    }
+
+    /* Header text */
+    .container .card .card-header {
+        font-size: 14px !important;
+        text-align: center !important;
+    }
+
+    /* Paragraphs */
+    .container .card .card-body p {
+        font-size: 13px !important;
+    }
+}
+
+</style>
 <div class="container mt-4">
     <h2 class="text-center">Order Details</h2>
     <hr>

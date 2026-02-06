@@ -6,6 +6,231 @@ Order History
 {% endblock %}
 
 {% block content %}
+
+<style>
+/* ===============================
+   ORDER HISTORY PAGE
+================================ */
+
+/* Container */
+.container {
+    max-width: 1100px !important;
+}
+
+/* Title */
+.container > h2 {
+    font-weight: 600 !important;
+    color: #2c3e50 !important;
+}
+
+/* Divider */
+.container > hr {
+    border-top: 2px solid #e0e0e0 !important;
+}
+
+/* ===============================
+   ORDER CARD
+================================ */
+
+.container .card {
+    border: none !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08) !important;
+    overflow: hidden !important;
+}
+
+/* Card header */
+.container .card .card-header {
+    background: linear-gradient(135deg, #6c757d, #495057) !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    padding: 14px 18px !important;
+}
+
+/* Header text */
+.container .card .card-header span {
+    white-space: nowrap !important;
+}
+
+/* Card body */
+.container .card .card-body {
+    padding: 20px !important;
+}
+
+/* Order summary text */
+.container .card .card-body > p {
+    font-size: 14px !important;
+    margin-bottom: 6px !important;
+    color: #555 !important;
+}
+
+.container .card .card-body > p strong {
+    color: #000 !important;
+}
+
+/* ===============================
+   ORDERED ITEMS
+================================ */
+
+.container .ordered-items {
+    margin-top: 15px !important;
+}
+
+/* Single item row */
+.container .ordered-items > div {
+    padding: 10px !important;
+    border-radius: 10px !important;
+    transition: background 0.3s ease !important;
+}
+
+.container .ordered-items > div:hover {
+    background-color: #f8f9fa !important;
+}
+
+/* Thumbnail */
+.container .ordered-items .thumbnail img {
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: 8px !important;
+    border: 1px solid #ddd !important;
+}
+
+/* Item details */
+.container .ordered-items .item-details p {
+    font-size: 13px !important;
+    margin-bottom: 4px !important;
+    color: #444 !important;
+}
+
+/* Product name */
+.container .ordered-items .item-details a {
+    font-size: 14px !important;
+    color: #212529 !important;
+}
+
+.container .ordered-items .item-details a:hover {
+    color: #0d6efd !important;
+}
+
+/* Divider */
+.container .ordered-items hr {
+    margin: 10px 0 !important;
+    border-top: 1px dashed #ddd !important;
+}
+
+/* ===============================
+   CARD FOOTER
+================================ */
+
+.container .card .card-footer {
+    background-color: #f9fafb !important;
+    padding: 14px 18px !important;
+    border-top: 1px solid #eee !important;
+}
+
+/* Buttons */
+.container .card .btn {
+    font-size: 13px !important;
+    padding: 6px 16px !important;
+    border-radius: 6px !important;
+    font-weight: 500 !important;
+}
+
+/* Pay now */
+.container .card .btn-success {
+    background: linear-gradient(135deg, #28a745, #20c997) !important;
+    border: none !important;
+}
+
+.container .card .btn-success:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 15px rgba(40, 167, 69, 0.4) !important;
+}
+
+/* View details */
+.container .card .btn-info {
+    background: linear-gradient(135deg, #0dcaf0, #0d6efd) !important;
+    border: none !important;
+    color: #fff !important;
+}
+
+/* ===============================
+   BANNER
+================================ */
+
+.container .banner {
+    text-align: center !important;
+    margin: 30px 0 !important;
+}
+
+.container .banner .btn {
+    padding: 10px 30px !important;
+    border-radius: 30px !important;
+    font-weight: 500 !important;
+}
+
+/* ===============================
+   EMPTY STATE
+================================ */
+
+.container .alert {
+    font-size: 15px !important;
+    border-radius: 8px !important;
+}
+
+/* ===============================
+   MEDIA QUERIES
+================================ */
+
+@media (max-width: 768px) {
+
+    /* Header stacking */
+    .container .card .card-header {
+        flex-direction: column !important;
+        gap: 6px !important;
+        text-align: center !important;
+    }
+
+    /* Ordered item layout */
+    .container .ordered-items > div {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
+    .container .ordered-items .thumbnail {
+        margin-bottom: 10px !important;
+    }
+
+    /* Footer buttons */
+    .container .card .card-footer {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Smaller text */
+    .container > h2 {
+        font-size: 20px !important;
+    }
+
+    .container .card .card-header span {
+        font-size: 13px !important;
+    }
+
+    .container .ordered-items .item-details p {
+        font-size: 12px !important;
+    }
+
+    .container .card .btn {
+        width: 100% !important;
+        text-align: center !important;
+    }
+}
+
+    
+</style>
 <div class="container mt-4">
     <h2>Order History</h2>
     <hr>

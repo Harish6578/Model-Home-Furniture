@@ -1,5 +1,51 @@
 {% extends "base/base.html" %}
 {% block content %}
+<style>
+/* Container */
+.container-sm {
+    max-width: 420px !important;
+    background: radial-gradient(circle at top, #f7b186, #170c02) !important;
+    backdrop-filter: blur(16px) !important;
+    border-radius: 24px !important;
+    padding: 40px 30px !important;
+    text-align: center !important;
+    box-shadow:
+        0 25px 55px rgba(0, 0, 0, 0.8),
+        inset 0 0 0 1px rgba(250, 204, 21, 0.4) !important;
+}
+/* Heading */
+.container-sm > h2 {
+    font-size: 22px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.6px !important;
+    color: #0b0b0b !important;
+    margin-bottom: 26px !important;
+}
+
+/* Button wrapper */
+.container-sm > div {
+    margin-top: 10px !important;
+}
+
+/* Button */
+.container-sm .btn {
+    padding: 12px 34px !important;
+    border-radius: 30px !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    letter-spacing: 1px !important;
+    border: none !important;
+    background: linear-gradient(135deg, #facc15, #f97316) !important;
+    color: #020617 !important;
+    transition: all 0.3s ease !important;
+}
+/* Hover */
+.container-sm .btn:hover {
+    transform: translateY(-2px) scale(1.05) !important;
+    box-shadow: 0 14px 35px rgba(250, 204, 21, 0.55) !important;
+}
+
+</style>
 <div class="container-sm">
     <h2>Password changed successfully...</h2>
     <div>

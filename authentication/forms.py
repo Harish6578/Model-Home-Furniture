@@ -12,8 +12,9 @@ BOOTSTARP_ATTPS ={
 class UserRegisterForm(UserCreationForm):
     username=forms.CharField(widget=forms.TextInput(attrs=BOOTSTARP_ATTPS))
     email=forms.EmailField(widget=forms.EmailInput(attrs=BOOTSTARP_ATTPS))
-    password1=forms.CharField(widget=forms.PasswordInput(attrs=BOOTSTARP_ATTPS))
-    password2=forms.CharField(widget=forms.PasswordInput(attrs=BOOTSTARP_ATTPS))
+    password1=forms.CharField( label="Password", widget=forms.PasswordInput(attrs=BOOTSTARP_ATTPS))
+    password2=forms.CharField( label="Confirm password",widget=forms.PasswordInput(attrs=BOOTSTARP_ATTPS))
+    
 
     class Meta:
         model=User

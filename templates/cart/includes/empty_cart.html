@@ -1,3 +1,91 @@
+<style>
+/* =====================================
+   EMPTY CART – FRIENDLY STATE
+===================================== */
+
+/* Wrapper */
+.cart-empty {
+    min-height: 0vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    background: radial-gradient(circle at top, #f8fafc, #eef2ff) !important;
+    border-radius: 20px !important;
+    padding: 40px 30px !important;
+    box-shadow:
+        inset 0 0 0 1px rgba(99, 102, 241, 0.15),
+        0 20px 40px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Heading */
+.cart-empty h3 {
+    font-size: 24px !important;
+    font-weight: 800 !important;
+    color: #1e293b !important;
+    margin-bottom: 10px !important;
+}
+
+/* Message */
+.cart-empty p {
+    font-size: 15px !important;
+    color: #475569 !important;
+    margin-bottom: 22px !important;
+}
+
+/* Button */
+.cart-empty .btn {
+    padding: 12px 30px !important;
+    border-radius: 30px !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+    border: none !important;
+    background: radial-gradient(circle at top, #f7b186, #170c02) !important;
+    color: #ffffff !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Hover */
+.cart-empty .btn:hover {
+    transform: translateY(-2px) scale(1.05) !important;
+    box-shadow: 0 14px 35px rgba(99, 102, 241, 0.4) !important;
+}
+
+/* =====================================
+   MEDIA QUERIES
+===================================== */
+
+@media (max-width: 768px) {
+
+    .cart-empty {
+        padding: 32px 22px !important;
+    }
+
+    .cart-empty h3 {
+        font-size: 22px !important;
+    }
+
+    .cart-empty p {
+        font-size: 14px !important;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .cart-empty {
+        min-height: 60vh !important;
+        border-radius: 16px !important;
+    }
+
+    .cart-empty .btn {
+        width: 100% !important;
+        font-size: 14px !important;
+    }
+}
+
+</style>
 <div class="cart-empty text-center">
 
     <h3>Your cart is empty😢</h3>

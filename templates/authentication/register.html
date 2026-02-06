@@ -4,19 +4,197 @@ Register
 {% endblock %}
 
 {% block content %}
+<style>
+    /* =====================================
+   REGISTER PAGE – NEO GLASS STYLE
+===================================== */
 
+    /* Section background */
+    section {
+        min-height: 100vh !important;
+        background: radial-gradient(circle at top, #f7b186, #170c02) !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+
+    /* Container */
+    section .container {
+        max-width: 1200px !important;
+    }
+
+    /* Card */
+    section .card {
+        background: rgba(255, 255, 255, 0.08) !important;
+        backdrop-filter: blur(14px) !important;
+        border-radius: 22px !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        box-shadow:
+            0 25px 50px rgba(0, 0, 0, 0.6),
+            inset 0 0 0 1px rgba(99, 102, 241, 0.25) !important;
+    }
+
+    /* Card body */
+    section .card .card-body {
+        padding: 32px !important;
+    }
+
+    /* Heading */
+    section .card h3 {
+        font-size: 26px !important;
+        font-weight: 800 !important;
+        text-align: center !important;
+        letter-spacing: 1px !important;
+        background: linear-gradient(90deg, #354041, #2d2525, #161313) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+    }
+
+    /* Alerts */
+    section .alert {
+        background: linear-gradient(135deg, #7f1d1d, #dc2626) !important;
+        color: #fff !important;
+        border: none !important;
+        border-radius: 12px !important;
+        font-size: 14px !important;
+    }
+
+    /* =====================================
+   FORM FIELDS
+===================================== */
+
+    section form {
+        margin-top: 20px !important;
+    }
+
+    /* Inputs */
+    section form input,
+    section form select,
+    section form textarea {
+        background: rgba(255, 255, 255, 0.12) !important;
+        border: 1px solid rgba(255, 255, 255, 0.25) !important;
+        border-radius: 14px !important;
+        padding: 12px 14px !important;
+        font-size: 14px !important;
+        color: #e5e7eb !important;
+        transition: 0.3s ease !important;
+    }
+
+    /* Placeholder */
+    section form input::placeholder {
+        color: #9ca3af !important;
+    }
+
+    /* Focus */
+    section form input:focus,
+    section form select:focus,
+    section form textarea:focus {
+        outline: none !important;
+        border-color: #2806ea !important;
+        box-shadow: 0 0 0 2px rgba(71, 26, 197, 0.4) !important;
+        background: rgba(255, 255, 255, 0.18) !important;
+    }
+
+    /* Labels */
+    section form label {
+        font-size: 13px !important;
+        font-weight: 600 !important;
+        color: #93c5fd !important;
+        margin-bottom: 6px !important;
+    }
+
+    /* =====================================
+   REGISTER BUTTON
+===================================== */
+
+    section form button {
+        margin-top: 20px !important;
+        padding: 12px !important;
+        border-radius: 30px !important;
+        font-size: 15px !important;
+        font-weight: 700 !important;
+        letter-spacing: 1px !important;
+        border: none !important;
+        background: linear-gradient(135deg, #facc15, #fb7185) !important;
+        color: #020617 !important;
+        transition: 0.3s ease !important;
+    }
+
+    /* Hover */
+    section form button:hover {
+        transform: translateY(-2px) scale(1.02) !important;
+        box-shadow: 0 12px 30px rgba(250, 204, 21, 0.5) !important;
+    }
+
+    /* =====================================
+   LOGIN LINK
+===================================== */
+
+    section form p {
+        font-size: 13px !important;
+        color: #cbd5f5 !important;
+    }
+
+    section form p a {
+        color: #090a0a !important;
+        font-weight: 700 !important;
+        text-decoration: none !important;
+    }
+
+    section form p a:hover {
+        text-decoration: underline !important;
+    }
+
+    /* =====================================
+   MEDIA QUERIES
+===================================== */
+
+    @media (max-width: 768px) {
+
+        section {
+            padding: 20px !important;
+        }
+
+        section .card .card-body {
+            padding: 26px !important;
+        }
+
+        section .card h3 {
+            font-size: 22px !important;
+        }
+    }
+
+    @media (max-width: 480px) {
+
+        section .card {
+            border-radius: 18px !important;
+        }
+
+        section .card .card-body {
+            padding: 22px !important;
+        }
+
+        section form button {
+            font-size: 14px !important;
+        }
+    }
+
+    .form-label {
+        color: white !important;
+    }
+</style>
 <section class="p-5">
-<div class="container ">
-    <div class="row justify-content-center">
-        <div class="col-md-5">
-            <div class="card shadow-lg border-0 rounded-4">
-                <div class="card-body p-4">
-                    <h3 class="text-center mb-4">
-                        Register Account
-                    </h3>
-                    <form method="post">
-                        {% csrf_token %}
-                        {% if form.non_field_errors %}
+    <div class="container ">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="card shadow-lg border-0 rounded-4">
+                    <div class="card-body p-4">
+                        <h3 class="text-center mb-4">
+                            Register Account
+                        </h3>
+                        <form method="post">
+                            {% csrf_token %}
+                                        
+                            {% if form.non_field_errors %}
                         <div class="alert alert-danger">
                             {{ form.non_field_errors }}
                         </div>
@@ -30,11 +208,11 @@ Register
                             Already have an account ? Sign in 
                             <a href="{% url 'signin' %}">here</a>
                         </p>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </section>
 {% endblock %}
