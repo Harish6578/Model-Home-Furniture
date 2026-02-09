@@ -5,6 +5,186 @@ Order History
 {% endblock %}
 
 {% block content %}
+
+<style>
+
+  /* =====================================
+   PAGE TITLE
+===================================== */
+
+h1 {
+    font-size: 30px;
+    font-weight: 600;
+    color: #2a2a2a;
+    margin-bottom: 30px;
+    letter-spacing: 0.5px;
+}
+
+/* =====================================
+   TABLE WRAPPER
+===================================== */
+
+.table {
+    background: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid #ebe4dc;
+}
+
+/* =====================================
+   TABLE HEADER
+===================================== */
+
+.table thead {
+    background: linear-gradient(180deg, #faf8f6, #f1ece7);
+}
+
+.table thead th {
+    font-size: 13px;
+    font-weight: 600;
+    color: #4a4a4a;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    padding: 16px 14px;
+    border-bottom: 1px solid #e5dfd8;
+}
+
+/* =====================================
+   TABLE BODY ROWS
+===================================== */
+
+.table tbody tr {
+    transition: background-color 0.25s ease;
+}
+
+.table tbody tr:hover {
+    background-color: #faf6f2;
+}
+
+/* =====================================
+   TABLE CELLS
+===================================== */
+
+.table tbody td {
+    font-size: 14px;
+    color: #2f2f2f;
+    padding: 16px 14px;
+    vertical-align: middle;
+    border-top: 1px solid #eee7df;
+}
+
+/* Order ID */
+.table tbody td:first-child {
+    font-weight: 600;
+    color: #2a2a2a;
+}
+
+/* =====================================
+   STATUS STYLE
+===================================== */
+
+.table tbody td:nth-child(3) {
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+/* Pending */
+.table tbody td:nth-child(3):contains("PENDING") {
+    color: #d18b2c;
+}
+
+/* =====================================
+   ACTION BUTTONS
+===================================== */
+
+.table .btn {
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 12px;
+    margin-right: 6px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Pay Now */
+.table .btn-success {
+    background: linear-gradient(135deg, #6fcf97, #27ae60);
+    border: none;
+}
+
+.table .btn-success:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(39,174,96,0.35);
+}
+
+/* View Details */
+.table .btn-info {
+    background: linear-gradient(135deg, #56ccf2, #2f80ed);
+    border: none;
+    color: #fff;
+}
+
+.table .btn-info:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(47,128,237,0.35);
+}
+
+/* =====================================
+   EMPTY STATE
+===================================== */
+
+p {
+    font-size: 15px;
+    color: #6f6f6f;
+    margin-bottom: 16px;
+}
+
+/* Start shopping button */
+.btn-primary {
+    background: linear-gradient(135deg, #e4b873, #c89b63);
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    padding: 10px 18px;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 10px 24px rgba(200,155,99,0.35);
+    transform: translateY(-2px);
+}
+
+/* =====================================
+   RESPONSIVE – MOBILE FRIENDLY
+===================================== */
+
+@media (max-width: 768px) {
+    .table thead {
+        display: none;
+    }
+
+    .table tbody tr {
+        display: block;
+        margin-bottom: 16px;
+        border-radius: 14px;
+        border: 1px solid #ebe4dc;
+        background: #ffffff;
+    }
+
+    .table tbody td {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 14px;
+        border: none;
+        border-bottom: 1px solid #eee7df;
+        font-size: 13px;
+    }
+
+    .table tbody td:last-child {
+        border-bottom: none;
+    }
+}
+  
+</style>
 <h1>Order History</h1>
 
 {% if orders %}
