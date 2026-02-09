@@ -1,0 +1,247 @@
+<style>
+
+    /* =====================================
+   ROOT COLORS – LUXURY FURNITURE
+===================================== */
+
+:root {
+    --lux-bg-main: #f9f6f2;
+    --lux-bg-card: #ffffff;
+    --lux-gold: #c6a25a;
+    --lux-dark: #2b1e14;
+    --lux-muted: #7a6f66;
+    --lux-border: rgba(0,0,0,0.08);
+}
+
+/* =====================================
+   FOOTER BASE
+===================================== */
+
+#luxury-footer {
+    background: linear-gradient(950deg, #e2b36c, var(--lux-bg-main));
+    border-top: 1px solid var(--lux-border);
+    padding: 70px 20px 0;
+}
+
+/* =====================================
+   FOOTER CONTAINER
+===================================== */
+
+.luxury-footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+    gap: 70px;
+    padding-bottom: 50px;
+}
+
+/* =====================================
+   BRAND
+===================================== */
+
+.luxury-footer-logo {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: var(--lux-dark);
+    margin-bottom: 14px;
+}
+
+.luxury-footer-logo span {
+    color: var(--lux-gold);
+}
+
+.luxury-footer-text {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--lux-muted);
+    max-width: 360px;
+}
+
+/* =====================================
+   TITLES
+===================================== */
+
+.luxury-footer-title {
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--lux-dark);
+    margin-bottom: 18px;
+}
+
+/* =====================================
+   LINKS
+===================================== */
+
+.luxury-footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.luxury-footer-links li {
+    margin-bottom: 12px;
+}
+
+.luxury-footer-links a {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--lux-muted);
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.luxury-footer-links a:hover {
+    color: var(--lux-gold);
+    padding-left: 6px;
+}
+
+/* =====================================
+   NEWSLETTER
+===================================== */
+
+.luxury-footer-mini {
+    font-size: 13px;
+    color: var(--lux-muted);
+    margin-bottom: 12px;
+}
+
+.luxury-newsletter {
+    display: flex;
+    gap: 10px;
+}
+
+.luxury-newsletter input {
+    flex: 1;
+    height: 44px;
+    border-radius: 12px;
+    border: 1px solid var(--lux-border);
+    padding: 10px 14px;
+    font-size: 14px;
+    color: var(--lux-dark);
+    outline: none;
+}
+
+.luxury-newsletter input::placeholder {
+    color: #aaa;
+}
+
+.luxury-newsletter button {
+    height: 44px;
+    padding: 0 18px;
+    border-radius: 12px;
+    border: none;
+    background: var(--lux-dark);
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.luxury-newsletter button:hover {
+    background: var(--lux-gold);
+    transform: translateY(-2px);
+}
+
+/* =====================================
+   FOOTER BOTTOM
+===================================== */
+
+.luxury-footer-bottom {
+    border-top: 1px solid var(--lux-border);
+    padding: 18px 20px;
+    text-align: center;
+}
+
+.luxury-footer-bottom p {
+    font-size: 13px;
+    color: var(--lux-muted);
+    margin: 0;
+}
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 900px) {
+    .luxury-footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 576px) {
+    .luxury-footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .luxury-footer-text {
+        margin: auto;
+    }
+
+    .luxury-newsletter {
+        flex-direction: column;
+    }
+
+    .luxury-newsletter button {
+        width: 100%;
+    }
+}
+
+</style>
+
+<footer id="luxury-footer">
+    <div class="luxury-footer-container">
+
+        <!-- Brand -->
+        <div class="luxury-footer-col">
+            <h2 class="luxury-footer-logo">Furni<span>Lux</span></h2>
+            <p class="luxury-footer-text">
+                Crafting timeless furniture with elegance, comfort,
+                and premium materials for modern living spaces.
+            </p>
+        </div>
+
+        <!-- Links -->
+        <div class="luxury-footer-col">
+            <h4 class="luxury-footer-title">Shop</h4>
+            <ul class="luxury-footer-links">
+                <li><a href="#">Living Room</a></li>
+                <li><a href="#">Bedroom</a></li>
+                <li><a href="#">Dining</a></li>
+                <li><a href="#">Office</a></li>
+            </ul>
+        </div>
+
+        <!-- Support -->
+        <div class="luxury-footer-col">
+            <h4 class="luxury-footer-title">Support</h4>
+            <ul class="luxury-footer-links">
+                <li><a href="#">Order Tracking</a></li>
+                <li><a href="#">Shipping & Delivery</a></li>
+                <li><a href="#">Returns</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="luxury-footer-col">
+            <h4 class="luxury-footer-title">Newsletter</h4>
+            <p class="luxury-footer-mini">
+                Join our mailing list for exclusive offers.
+            </p>
+
+           
+        </div>
+
+    </div>
+
+    <div class="luxury-footer-bottom">
+        <p>© 2026 FurniLux. All Rights Reserved.</p>
+    </div>
+</footer>

@@ -8,10 +8,13 @@
 
 /* ================= LAYOUT ================= */
 main {
-    padding-bottom: 40px;
     background: linear-gradient(135deg, #fff5f0, #fdeee7);
     color: #1e1e1e;
 }
+body{
+  padding-top: 105px;
+}
+
 .navbar{
     background-color: #fd8b6b;
 }
@@ -52,7 +55,7 @@ main {
 }
 
 #homeCarousel .home-carousel-img {
-    height: 600px;
+    height: 622px;
     object-fit: cover;
     filter: brightness(0.9);
 }

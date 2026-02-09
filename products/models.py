@@ -24,12 +24,6 @@ class ProductImage(models.Model):
         blank=True,
         null=True
     )
-    video = models.FileField(
-        upload_to='products/videos/',
-        blank=True,
-        null=True,
-        validators=[FileExtensionValidator(['mp4', 'webm', 'mov'])]
-    )
     caption = models.CharField(max_length=200, blank=True)
     product = models.ForeignKey(
         Product,
@@ -38,9 +32,6 @@ class ProductImage(models.Model):
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-
-    def is_video(self):
-        return bool(self.video)
 
     def is_image(self):
         return bool(self.img)

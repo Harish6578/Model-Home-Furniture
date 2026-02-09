@@ -1,288 +1,517 @@
 <style>
-    
-
-   
-
   /* ===============================
    PREMIUM WOOD NAVBAR BACKGROUND
    =============================== */
-/* ===============================
+  /* ===============================
    NAVBAR TOGGLER (BUTTON ONLY)
    =============================== */
 
-.navbar .navbar-toggler {
-  border: 1px solid rgba(255, 215, 168, 0.6) !important;
-  background: linear-gradient(
-    135deg,
-    #6f4e37,
-    #4b2e1b
-  ) !important;
+   .navbar {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+   }
 
-  padding: 6px 10px !important;
-  border-radius: 8px !important;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.4) !important;
-}
+  .navbar .navbar-toggler {
+    border: 1px solid rgba(255, 215, 168, 0.6) !important;
+    background: linear-gradient(135deg,
+        #6f4e37,
+        #4b2e1b) !important;
 
-/* Hamburger icon color */
-.navbar .navbar-toggler-icon {
-  filter: brightness(0) invert(1) !important;
-}
+    padding: 6px 10px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4) !important;
+  }
 
-/* Hover effect */
-.navbar .navbar-toggler:hover {
-  background: linear-gradient(
-    135deg,
-    #8b5a2b,
-    #5c3317
-  ) !important;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.55) !important;
-}
+  /* Hamburger icon color */
+  .navbar .navbar-toggler-icon {
+    filter: brightness(0) invert(1) !important;
+  }
 
-/* Focus (click outline fix) */
-.navbar .navbar-toggler:focus {
-  box-shadow: 0 0 0 0.15rem rgba(207,166,107,0.6) !important;
-}
+  /* Hover effect */
+  .navbar .navbar-toggler:hover {
+    background: linear-gradient(135deg,
+        #8b5a2b,
+        #5c3317) !important;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.55) !important;
+  }
 
-.navbar {
-  background:
-    repeating-linear-gradient(
-      90deg,
-      rgba(255,255,255,0.04) 0px,
-      rgba(255,255,255,0.04) 1px,
-      transparent 1px,
-      transparent 6px
-    ),
-    linear-gradient(
-      180deg,
-      #4a2c1a,
-      #4e3422,
-      #2a180f
-    ) !important;
+  /* Focus (click outline fix) */
+  .navbar .navbar-toggler:focus {
+    box-shadow: 0 0 0 0.15rem rgba(207, 166, 107, 0.6) !important;
+  }
 
-  box-shadow: 0 8px 22px rgba(0,0,0,0.55) !important;
-  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
-}
+  .navbar {
+    background:
+      repeating-linear-gradient(90deg,
+        rgba(255, 255, 255, 0.04) 0px,
+        rgba(255, 255, 255, 0.04) 1px,
+        transparent 1px,
+        transparent 6px),
+      linear-gradient(180deg,
+        #4a2c1a,
+        #4e3422,
+        #2a180f) !important;
 
-/* ===============================
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+
+  /* ===============================
    BRAND
    =============================== */
 
-.navbar-brand {
-  color: #f5e6d3 !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.6px !important;
-}
 
-.navbar-brand:hover {
-  color: #e7caa2 !important;
-}
 
-/* ===============================
+  /* ===============================
    NAV LINKS
    =============================== */
 
-.navbar-nav .nav-link {
-  color: #f1e4cf !important;
-  font-weight: 500 !important;
-  transition: color 0.3s ease !important;
-}
+  .navbar-nav .nav-link {
+    color: #f1e4cf !important;
+    font-weight: 500 !important;
+    transition: color 0.3s ease !important;
+  }
 
-.navbar-nav .nav-link:hover {
-  color: #ffd7a8 !important;
-}
+  .navbar-nav .nav-link:hover {
+    color: #ffd7a8 !important;
+  }
 
-/* ACTIVE LINK */
-.navbar-nav .nav-link.active {
-  color: #ffddb3 !important;
-  border-bottom: 2px solid #cfa66b !important;
-}
+  /* ACTIVE LINK */
+  .navbar-nav .nav-link.active {
+    color: #ffddb3 !important;
+    border-bottom: 2px solid #cfa66b !important;
+  }
 
-/* ===============================
+  /* ===============================
    DROPDOWN MENU (WOOD STYLE)
    =============================== */
 
-.dropdown-menu {
-  background: linear-gradient(
-    180deg,
-    #3b2414,
-    #2a180f
-  ) !important;
+  .dropdown-menu {
+    background: linear-gradient(180deg,
+        #3b2414,
+        #2a180f) !important;
 
-  border: 1px solid rgba(255,255,255,0.08) !important;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.55) !important;
-}
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.55) !important;
+  }
 
-.dropdown-item {
-  color: #f5e6d3 !important;
-}
+  .dropdown-item {
+    color: #f5e6d3 !important;
+  }
 
-.dropdown-item:hover {
-  background: rgba(207,166,107,0.18) !important;
-  color: #ffd7a8 !important;
-}
+  .dropdown-item:hover {
+    background: rgba(207, 166, 107, 0.18) !important;
+    color: #ffd7a8 !important;
+  }
 
-/* ===============================
+  /* ===============================
    SEARCH BAR
    =============================== */
 
-.navbar .form-control {
-  background-color: rgba(255,255,255,0.08) !important;
-  border: 1px solid rgba(255,255,255,0.15) !important;
-  color: #1b1a1a !important;
-  padding: 5px !important;
-}
+  .navbar .form-control {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    color: #1b1a1a !important;
+    padding: 5px !important;
+  }
 
-.navbar .form-control::placeholder {
-  color: rgba(255,255,255,0.65) !important;
-}
+  .navbar .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.65) !important;
+  }
 
-.navbar .btn-secondary {
-  background: linear-gradient(
-    135deg,
-    #7a4b28,
-    #5c3317
-  ) !important;
+  .navbar .btn-secondary {
+    background: linear-gradient(135deg,
+        #7a4b28,
+        #5c3317) !important;
 
-  border: none !important;
-  color: #fff !important;
-}
+    border: none !important;
+    color: #fff !important;
+  }
 
-.navbar .btn-secondary:hover {
-  background: linear-gradient(
-    135deg,
-    #8b5a2b,
-    #6a3c1d
-  ) !important;
-}
+  .navbar .btn-secondary:hover {
+    background: linear-gradient(135deg,
+        #8b5a2b,
+        #6a3c1d) !important;
+  }
 
-/* ===============================
+  /* ================= NAVBAR SEARCH BAR ================= */
+
+  /* Wrapper */
+  .navbar-search {
+    max-width: 520px;
+    /* ⬅ CHANGE WIDTH HERE */
+    margin:auto;
+  }
+
+  /* Input */
+  .navbar-search .search-input {
+    height: 46px;
+    /* ⬅ CHANGE HEIGHT HERE */
+    font-size: 15px;
+    /* ⬅ TEXT SIZE */
+    padding: 10px 16px;
+    border-radius: 14px 0 0 14px;
+    border: 1px solid #ddd;
+    outline: none;
+    box-shadow: none;
+  }
+
+  /* Focus effect */
+  .navbar-search .search-input:focus {
+    border-color: #c6a25a;
+    /* luxury gold */
+    box-shadow: 0 0 0 3px rgba(198, 162, 90, 0.2);
+  }
+
+  /* Button */
+  .navbar-search .search-btn {
+    height: 46px;
+    /* SAME AS INPUT */
+    padding: 0 18px;
+    border-radius: 0 14px 14px 0;
+    border: 1px solid #ddd;
+    background: #2b1e14;
+    /* dark walnut */
+    color: #ffffff;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+  /* Hover */
+  .navbar-search .search-btn:hover {
+    background: #c6a25a;
+    /* gold hover */
+    transform: translateY(-1px);
+  }
+
+  /* Icon size */
+  .navbar-search .bi-search {
+    font-size: 16px;
+  }
+
+  /* ================= RESPONSIVE ================= */
+
+  @media (max-width: 768px) {
+    .navbar-search {
+      max-width: 100%;
+      margin: 10px 0;
+    }
+
+    .navbar-search .search-input,
+    .navbar-search .search-btn {
+      height: 42px;
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 576px) {
+
+    .navbar-search .search-input,
+    .navbar-search .search-btn {
+      height: 40px;
+      font-size: 13px;
+    }
+  }
+
+
+  /* ===============================
    CART BADGE
    =============================== */
 
-.cart-badge {
-  position: absolute;
-  top: 0;
-  right: -6px;
-  background: #cfa66b !important;
-  color: #2a180f !important;
-  font-size: 0.7rem !important;
-  font-weight: 700 !important;
-  padding: 2px 6px !important;
-  border-radius: 50% !important;
-}
+  .cart-badge {
+    position: absolute;
+    top: 0;
+    right: -6px;
+    background: #cfa66b !important;
+    color: #2a180f !important;
+    font-size: 0.7rem !important;
+    font-weight: 700 !important;
+    padding: 2px 6px !important;
+    border-radius: 50% !important;
+  }
 
-/* ===============================
+  /* ===============================
    MOBILE POLISH
    =============================== */
 
-@media (max-width: 991px) {
-  .navbar-collapse {
-    background: linear-gradient(
-      180deg,
-      #3b2414,
-      #2a180f
-    ) !important;
+  @media (max-width: 991px) {
+    .navbar-collapse {
+      background: linear-gradient(180deg,
+          #3b2414,
+          #2a180f) !important;
 
-    padding: 1rem !important;
+      padding: 1rem !important;
+    }
   }
+
+
+
+  /* ================= LUXURY NAVBAR BRAND ================= */
+
+  .navbar-brand {
+    text-decoration: none;
+  }
+
+  /* Logo image */
+  .nav-logo {
+    height: 80px;
+    /* ⬅ change size here */
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
+    transition: transform 0.3s ease;
+  }
+
+  /* Brand text */
+  .navbar-brand span {
+    font-family: 'Playfair Display', 'Cinzel', serif;
+    font-size: 24px;
+    /* ⬅ change text size here */
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #f3d291;
+    /* luxury gold */
+    transition: letter-spacing 0.3s ease;
+  }
+
+  /* Hover effect (subtle luxury) */
+  .navbar-brand:hover .nav-logo {
+    transform: scale(1.05);
+  }
+
+  .navbar-brand:hover span {
+    letter-spacing: 2px;
+  }
+
+  /* ================= RESPONSIVE ================= */
+
+  @media (max-width: 768px) {
+    .nav-logo {
+      height: 36px;
+    }
+
+    .navbar-brand span {
+      font-size: 20px;
+      letter-spacing: 1.2px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .nav-logo {
+      height: 32px;
+    }
+
+    .navbar-brand span {
+      font-size: 18px;
+    }
+  }
+
+
+  /* ================= LUXURY BRAND TEXT ================= */
+
+  .navbar-brand .brand-text {
+    font-family: 'Playfair Display', 'Cinzel', serif;
+    font-size: 24px;
+    /* change size here */
+    font-weight: 800;
+    letter-spacing: 1.5px;
+  }
+
+  /* FURNI – elegant neutral */
+  .navbar-brand .brand-furni {
+    color: #ffffff;
+    /* ivory / white */
+  }
+
+  /* LUX – luxury gold */
+  .navbar-brand .brand-lux {
+    color: #f3d291;
+    /* premium gold */
+    font-weight: 900;
+  }
+
+  /* Hover effect (subtle & premium) */
+  .navbar-brand:hover .brand-text {
+    letter-spacing: 2px;
+    transition: 0.3s ease;
+  }
+
+  /* ================= RESPONSIVE ================= */
+
+  @media (max-width: 768px) {
+    .navbar-brand .brand-text {
+      font-size: 20px;
+      letter-spacing: 1.2px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .navbar-brand .brand-text {
+      font-size: 18px;
+    }
+  }
+/* ================= NAVBAR GLOBAL SPACING ================= */
+
+/* Left nav links: Home, About, Manage */
+.navbar-nav {
+    gap: 28px; /* ⬅ change gap between Home / About */
 }
 
+/* Individual nav links */
+.navbar-nav ,.nav-link {
+    padding: 8px 6px;
+    font-weight: 600;
+}
+
+/* ================= SEARCH BAR SPACING ================= */
+
+.navbar-search {
+   margin: auto;  /* gap from left menu */
+   margin: auto;  /* gap before cart */
+}
+
+/* ================= RIGHT SIDE (CART + ACCOUNT) ================= */
+
+.navbar-nav.ms-auto {
+    gap: 20px; /* ⬅ gap between cart and account */
+}
+
+/* Cart icon spacing */
+.navbar-nav .nav-item.me-3 {
+    margin-right: 0 !important; /* remove Bootstrap default */
+}
+
+/* Account dropdown spacing */
+.navbar .dropdown {
+    margin-left: 8px;
+}
+
+/* ================= CART BADGE POSITION (OPTIONAL FIX) ================= */
+
+.cart-badge {
+    top: -6px;
+    right: -8px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 992px) {
+    /* Stack spacing when collapsed */
+    .navbar-nav,.nav-link {
+        gap: 8px;
+    }
+
+    .navbar-search {
+        margin: 12px 0;
+    }
+
+    .navbar-nav.ms-auto {
+        gap: 10px;
+    }
+}
+
+
+
+  
 </style>
+{% load static %}
+
 <header>
-    <nav class="navbar navbar-expand-lg sticky-top" data-bs-theme="dark">
-        <div class="container-fluid">
+  <nav class="navbar navbar-expand-lg sticky-top" data-bs-theme="dark">
+    <div class="container-fluid">
 
-            <!-- BRAND -->
-            <a class="navbar-brand fw-bold" href="{% url 'home_page' %}">
-                Furniture-Shop
+
+
+      <a class="navbar-brand d-flex align-items-center gap-2 text-warning fw-bold" href="{% url 'home_page' %}">
+        <img src="{% static 'images/logo.png' %}" alt="AnimeXAnime Logo" class="nav-logo">
+        <span class="d-none d-md-inline brand-text">
+          <span class="brand-furni">Furni</span><span class="brand-lux">Lux</span>
+        </span>
+
+      </a>
+
+
+
+      <!-- MOBILE TOGGLER -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- LEFT NAV LINKS -->
+        <ul class="navbar-nav me-3 mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link {% if current_page == 'home' %}active{% endif %}" href="{% url 'home_page' %}">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link {% if current_page == 'about' %}active{% endif %}"
+              href="{% url 'about_page' %}">About</a>
+          </li>
+          {% if user.is_staff %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+              Manage
             </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'products' %}">Products</a></li>
+              <li><a class="dropdown-item" href="{% url 'carousel_list' %}">Carousels</a></li>
+            </ul>
+          </li>
+          {% endif %}
+        </ul>
 
-            <!-- MOBILE TOGGLER -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <!-- 🔍 SEARCH BAR -->
+        <form class="navbar-search d-flex flex-grow-1" method="get" action="{% url 'search_products' %}">
+          <input name="q" value="{{ query }}" class="form-control search-input" type="search"
+            placeholder="Search Your Package..." aria-label="Search">
+          <button class="btn search-btn" type="submit">
+            <i class="bi bi-search"></i>
+          </button>
+        </form>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                <!-- LEFT NAV LINKS -->
-                <ul class="navbar-nav me-3 mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link {% if current_page == 'home' %}active{% endif %}"
-                            href="{% url 'home_page' %}">Home</a>
-                    </li>
+        <!-- RIGHT SIDE -->
+        <ul class="navbar-nav ms-auto align-items-center mb-2 mb-lg-0">
+          {% if not user.is_staff %}
+          <!-- 🛒 CART -->
+          <li class="nav-item me-3 position-relative">
+            <a class="nav-link" href="{% url 'view_cart' %}">
+              <i class="bi bi-cart3 fs-4"></i>
+              {% if user.is_authenticated %}
+              <span class="cart-badge" id="cart-count">0</span>
+              {% endif %}
+            </a>
+          </li>
+          {% endif %}
 
-                    <li class="nav-item">
-                        <a class="nav-link {% if current_page == 'about' %}active{% endif %}"
-                            href="{% url 'about_page' %}">About</a>
-                    </li>
-                    {% if user.is_staff %}
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                            Manage
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{% url 'products' %}">Products</a></li>
-                            <li><a class="dropdown-item" href="{% url 'carousel_list' %}">Carousels</a></li>
-                        </ul>
-                    </li>
-                    {% endif %}
-                </ul>
-                <!-- 👤 ACCOUNT -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" data-bs-toggle="dropdown">
-                        <i class="bi bi-person-circle me-1"></i>
-                        {% if user.is_authenticated %}
-                        {{user.username.capitalize}}
-                        {% else %}
-                        Hi User!
-                        {% endif %}
-                    </a>
-
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        {% if user.is_authenticated %}
-                        <li>
-                            <form action="{% url 'logout' %}" method="post">
-                                {% csrf_token %}
-                                <button class="dropdown-item text-danger">Logout</button>
-                            </form>
-                        </li>
-                        {% else %}
-                        <li><a class="dropdown-item" href="{% url 'signup' %}">Register</a></li>
-                        <li><a class="dropdown-item" href="{% url 'signin' %}">Login</a></li>
-                        {% endif %}
-
-                    </ul>
-                </li>
-
-                <!-- 🔍 SEARCH BAR -->
-                <form class="d-flex flex-grow-1 mx-lg-4" method="get" action="{% url 'search_products' %}">
-
-                    <input name="q" value="{{ query }}" class="form-control rounded-start" type="search"
-                        placeholder="Search Your Package..." aria-label="Search">
-
-                    <button class="btn btn-secondary rounded-end" type="submit">
-                        <i class="bi bi-search"></i>
-                    </button>
-                </form>
-
-                <!-- RIGHT SIDE -->
-                <ul class="navbar-nav ms-auto align-items-center mb-2 mb-lg-0">
-                    {% if not user.is_staff %}
-                    <!-- 🛒 CART -->
-                    <li class="nav-item me-3 position-relative">
-                        <a class="nav-link" href="{% url 'view_cart' %}">
-                            <i class="bi bi-cart3 fs-4"></i>
-                            {% if user.is_authenticated %}
-                            <span class="cart-badge" id="cart-count">0</span>
-                            {% endif %}
-                        </a>
-                    </li>
-                    {% endif %}
-
-                </ul>
-
-            </div>
-        </div>
-    </nav>
+        </ul>
+        <!-- 👤 ACCOUNT -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-person-circle me-1"></i>
+            {% if user.is_authenticated %}
+            {{user.username.capitalize}}
+            {% else %}
+            Hi User!
+            {% endif %}
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            {% if user.is_authenticated %}
+            <li>
+              <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button class="dropdown-item text-danger">Logout</button>
+              </form>
+            </li>
+            {% else %}
+            <li><a class="dropdown-item" href="{% url 'signup' %}">Register</a></li>
+            <li><a class="dropdown-item" href="{% url 'signin' %}">Login</a></li>
+            {% endif %}
+          </ul>
+        </li>
+      </div>
+    </div>
+  </nav>
 </header>
