@@ -1,46 +1,172 @@
-<div id="productImageCarousel"
-     class="carousel slide product-carousel"
-     data-bs-ride="carousel">
+<style>
+    /* ===============================
+   PRODUCT CAROUSEL CONTAINER
+   =============================== */
+
+.product-carousel {
+  border-radius: 16px;
+  overflow: hidden;
+  background: radial-gradient(circle at top, #2a1a12, #120a06);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.55);
+}
+
+/* ===============================
+   IMAGE & VIDEO STYLE
+   =============================== */
+
+.product-main-img {
+  height: 420px;
+  object-fit: cover;
+  border-radius: 16px;
+  transition: transform 0.6s ease, filter 0.6s ease;
+  filter: contrast(1.05) saturate(1.1);
+}
+
+/* ===============================
+   HOVER EFFECT (PREMIUM FEEL)
+   =============================== */
+
+.carousel-item:hover .product-main-img {
+  transform: scale(1.05);
+  filter: brightness(1.08) saturate(1.15);
+}
+
+/* ===============================
+   VIDEO FIX
+   =============================== */
+
+.carousel-item video.product-main-img {
+  background: #000;
+}
+
+/* ===============================
+   CAROUSEL CONTROLS
+   =============================== */
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0,0,0,0.65);
+  border-radius: 50%;
+  padding: 18px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+  background-color: rgba(207,166,107,0.9);
+}
+
+/* ===============================
+   STAFF EDIT / DELETE BUTTONS
+   =============================== */
+
+.image-btn {
+  position: absolute;
+  top: 15px;
+  z-index: 10;
+  backdrop-filter: blur(6px);
+  background: rgba(0,0,0,0.55);
+  color: #f5e6d3;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.image-btn-left {
+  left: 15px;
+}
+
+.image-btn-right {
+  right: 15px;
+}
+
+.image-btn:hover {
+  background: rgba(207,166,107,0.85);
+  color: #2a180f;
+}
+
+
+/* ===============================
+   FIX: VIDEO CLICK INSIDE CAROUSEL
+   (NO HTML CHANGE)
+   =============================== */
+
+/* Make sure video is above carousel swipe layer */
+.product-carousel video.product-main-img {
+  position: relative;
+  z-index: 5;
+  pointer-events: auto;
+}
+
+/* Prevent Bootstrap carousel from hijacking touch/click */
+.product-carousel .carousel-item {
+  touch-action: pan-y;
+}
+
+/* Ensure controls are clickable on mobile */
+.product-carousel video::-webkit-media-controls {
+  pointer-events: auto;
+}
+
+/* Optional: avoid focus issues */
+.product-carousel video:focus {
+  outline: none;
+}
+
+
+/* ===============================
+   MOBILE OPTIMIZATION
+   =============================== */
+
+@media (max-width: 768px) {
+  .product-main-img {
+    height: 280px;
+  }
+}
+
+</style>
+
+<div id="productImageCarousel" class="carousel slide product-carousel" data-bs-ride="carousel">
 
     {% if product.images.all %}
-    <!-- SLIDES -->
     <div class="carousel-inner">
 
         {% for image in product.images.all %}
         <div class="carousel-item {% if forloop.first %}active{% endif %}">
-{% if user.is_staff %}
+
+            {% if user.is_staff %}
             <!-- Image-level Actions -->
             <a href="{% url 'edit_prod_image' image.pk %}"
-               class="btn btn-sm btn-outline-secondary image-btn image-btn-left">
+                class="btn btn-sm btn-outline-secondary image-btn image-btn-left">
                 Edit
             </a>
 
             <a href="{% url 'del_prod_image' image.pk %}"
-               class="btn btn-sm btn-outline-danger image-btn image-btn-right">
+                class="btn btn-sm btn-outline-danger image-btn image-btn-right">
                 Delete
             </a>
-{% endif %}
-            <img src="{{ image.img.url }}"
-                 class="d-block w-100 product-main-img"
-                 alt="{{ product.title }}">
+            {% endif %}
+
+            {% if image.img %}
+            <!-- IMAGE -->
+            <img src="{{ image.img.url }}" class="d-block w-100 product-main-img" alt="{{ product.title }}">
+            {% elif image.video %}
+            <!-- VIDEO -->
+            <video class="d-block w-100 product-main-img" controls>
+                <source src="{{ image.video.url }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            {% endif %}
+
         </div>
         {% endfor %}
 
     </div>
 
-    <!-- CONTROLS (only if more than 1 image) -->
     {% if product.images.count > 1 %}
-    <button class="carousel-control-prev"
-            type="button"
-            data-bs-target="#productImageCarousel"
-            data-bs-slide="prev">
+    <button class="carousel-control-prev" type="button" data-bs-target="#productImageCarousel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon"></span>
     </button>
 
-    <button class="carousel-control-next"
-            type="button"
-            data-bs-target="#productImageCarousel"
-            data-bs-slide="next">
+    <button class="carousel-control-next" type="button" data-bs-target="#productImageCarousel" data-bs-slide="next">
         <span class="carousel-control-next-icon"></span>
     </button>
     {% endif %}
@@ -48,7 +174,7 @@
     {% else %}
     <!-- EMPTY STATE -->
     <div class="d-flex align-items-center justify-content-center"
-         style="height: 420px; background: #111; color: #aaa; border-radius: 12px;">
+        style="height: 420px; background: #111; color: #aaa; border-radius: 12px;">
         <div class="text-center">
             <p class="mb-2">No product images uploaded</p>
             <small class="text-info">

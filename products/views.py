@@ -69,6 +69,7 @@ class ProductDetail(FormMixin, DetailView):
 
     def get_success_url(self):
         return reverse('product_details', kwargs={'pk':self.object.pk})
+        
     
     # overriding the queryset to pre-fetch 
     # and add the product images alongside products
@@ -77,13 +78,19 @@ class ProductDetail(FormMixin, DetailView):
     
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
-        form = self.get_form()
+        form = self.form_class(request.POST, request.FILES)
 
         if form.is_valid():
-            image = form.save(commit = False)
-            image.product = self.object 
-            image.save()
+            media = form.save(commit=False)
+            media.product = self.object
+            media.save()
+
             return redirect(self.get_success_url())
+        
+        # ✅ IMPORTANT: always return response if form is invalid
+        return self.render_to_response(
+            self.get_context_data(form=form)
+        )
 
 
 

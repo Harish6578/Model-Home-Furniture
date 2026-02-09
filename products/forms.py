@@ -31,13 +31,17 @@ class ProductForm(forms.ModelForm):
 class ProductImageForm(forms.ModelForm):
     class Meta:
         model = ProductImage
-        fields = ['img', 'caption']
+        fields = ['img', 'video','caption' ]
         widgets = {
             'img': forms.ClearableFileInput(attrs={
                 'class': 'form-control'
             }),
-            'caption': forms.TextInput(attrs={
+               'caption': forms.TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Optional caption'
             }),
+            'video':forms.ClearableFileInput(attrs={
+                'class': 'form-control'}),
+
+         
         }

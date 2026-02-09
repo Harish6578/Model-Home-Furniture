@@ -15,12 +15,36 @@ class Product(models.Model):
         return self.title
 
 
+from django.db import models
+from django.core.validators import FileExtensionValidator
+
 class ProductImage(models.Model):
-    img = models.ImageField(upload_to='products/images/')
+    img = models.ImageField(
+        upload_to='products/images/',
+        blank=True,
+        null=True
+    )
+    video = models.FileField(
+        upload_to='products/videos/',
+        blank=True,
+        null=True,
+        validators=[FileExtensionValidator(['mp4', 'webm', 'mov'])]
+    )
     caption = models.CharField(max_length=200, blank=True)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='images')
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE,
+        related_name='images'
+    )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def is_video(self):
+        return bool(self.video)
+
+    def is_image(self):
+        return bool(self.img)
+
     def __str__(self):
-        return f"{self.product.title} image"
+        return f"{self.product.title} media"
+

@@ -1,105 +1,191 @@
 <style>
-    .navbar-nav {
-    gap: 6px;
+    
+
+   
+
+  /* ===============================
+   PREMIUM WOOD NAVBAR BACKGROUND
+   =============================== */
+/* ===============================
+   NAVBAR TOGGLER (BUTTON ONLY)
+   =============================== */
+
+.navbar .navbar-toggler {
+  border: 1px solid rgba(255, 215, 168, 0.6) !important;
+  background: linear-gradient(
+    135deg,
+    #6f4e37,
+    #4b2e1b
+  ) !important;
+
+  padding: 6px 10px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4) !important;
 }
 
-/* ===== NAV LINKS ===== */
-.navbar-nav .nav-link {
-    position: relative;
-    padding: 10px 18px !important;
-    font-weight: 500;
-    color: #cfd8ff !important;
-    border-radius: 30px;
-    transition: all 0.35s ease;
-    margin: 20px;
-}
-
-/* Gradient underline */
-.navbar-nav .nav-link::after {
-    position: absolute;
-    left: 50%;
-    bottom: 6px;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(135deg, #f1e0d7, #fdc08b);
-    border-radius: 5px;
-    transition: 0.4s ease;
-    transform: translateX(-50%);
+/* Hamburger icon color */
+.navbar .navbar-toggler-icon {
+  filter: brightness(0) invert(1) !important;
 }
 
 /* Hover effect */
+.navbar .navbar-toggler:hover {
+  background: linear-gradient(
+    135deg,
+    #8b5a2b,
+    #5c3317
+  ) !important;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.55) !important;
+}
+
+/* Focus (click outline fix) */
+.navbar .navbar-toggler:focus {
+  box-shadow: 0 0 0 0.15rem rgba(207,166,107,0.6) !important;
+}
+
+.navbar {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.04) 0px,
+      rgba(255,255,255,0.04) 1px,
+      transparent 1px,
+      transparent 6px
+    ),
+    linear-gradient(
+      180deg,
+      #4a2c1a,
+      #4e3422,
+      #2a180f
+    ) !important;
+
+  box-shadow: 0 8px 22px rgba(0,0,0,0.55) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+}
+
+/* ===============================
+   BRAND
+   =============================== */
+
+.navbar-brand {
+  color: #f5e6d3 !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.6px !important;
+}
+
+.navbar-brand:hover {
+  color: #e7caa2 !important;
+}
+
+/* ===============================
+   NAV LINKS
+   =============================== */
+
+.navbar-nav .nav-link {
+  color: #f1e4cf !important;
+  font-weight: 500 !important;
+  transition: color 0.3s ease !important;
+}
+
 .navbar-nav .nav-link:hover {
-    color: #fff !important;
-    background: rgba(235, 220, 251, 0.15);
-    box-shadow: 0 0 20px rgba(245, 100, 4, 0.35);
+  color: #ffd7a8 !important;
 }
 
-/* Expand underline on hover */
-.navbar-nav .nav-link:hover::after {
-    width: 70%;
-}
-
-/* ===== ACTIVE LINK ===== */
+/* ACTIVE LINK */
 .navbar-nav .nav-link.active {
-    color: #fff !important;
-    background: linear-gradient(135deg, #3c3a38, #070707);
-    box-shadow: 0 0 25px rgba(249, 84, 1, 0.7);
+  color: #ffddb3 !important;
+  border-bottom: 2px solid #cfa66b !important;
 }
 
-.navbar-nav .nav-link.active::after {
-    width: 0;
+/* ===============================
+   DROPDOWN MENU (WOOD STYLE)
+   =============================== */
+
+.dropdown-menu {
+  background: linear-gradient(
+    180deg,
+    #3b2414,
+    #2a180f
+  ) !important;
+
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.55) !important;
 }
 
-/* ===== DROPDOWN ===== */
-.navbar-nav .dropdown-menu {
-    background: rgba(15, 15, 17, 0.95);
-    border: 1px solid rgba(255,255,255,0.15);
-    backdrop-filter: blur(12px);
-    border-radius: 14px;
-    padding: 10px;
-    margin-top: 10px;
-    animation: dropdownFade 0.35s ease;
+.dropdown-item {
+  color: #f5e6d3 !important;
 }
 
-/* Dropdown animation */
-@keyframes dropdownFade {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.dropdown-item:hover {
+  background: rgba(207,166,107,0.18) !important;
+  color: #ffd7a8 !important;
 }
 
-/* Dropdown items */
-.navbar-nav .dropdown-item {
-    color: #fcf9f9;
-    border-radius: 5px;
-    padding: 10px 14px;
-    transition: 0.3s;
+/* ===============================
+   SEARCH BAR
+   =============================== */
+
+.navbar .form-control {
+  background-color: rgba(255,255,255,0.08) !important;
+  border: 1px solid rgba(255,255,255,0.15) !important;
+  color: #1b1a1a !important;
+  padding: 5px !important;
 }
 
-/* Dropdown hover */
-.navbar-nav .dropdown-item:hover {
-    background: linear-gradient(135deg, #f1e0d7, #fdc08b);
-    color: #fcf8f8;
-    transform: translateX(5px);
+.navbar .form-control::placeholder {
+  color: rgba(255,255,255,0.65) !important;
 }
 
-/* Dropdown arrow animation */
-.navbar-nav .dropdown-toggle::after {
-    transition: 0.4s;
+.navbar .btn-secondary {
+  background: linear-gradient(
+    135deg,
+    #7a4b28,
+    #5c3317
+  ) !important;
+
+  border: none !important;
+  color: #fff !important;
 }
 
-/* ===== MOBILE FIX ===== */
+.navbar .btn-secondary:hover {
+  background: linear-gradient(
+    135deg,
+    #8b5a2b,
+    #6a3c1d
+  ) !important;
+}
+
+/* ===============================
+   CART BADGE
+   =============================== */
+
+.cart-badge {
+  position: absolute;
+  top: 0;
+  right: -6px;
+  background: #cfa66b !important;
+  color: #2a180f !important;
+  font-size: 0.7rem !important;
+  font-weight: 700 !important;
+  padding: 2px 6px !important;
+  border-radius: 50% !important;
+}
+
+/* ===============================
+   MOBILE POLISH
+   =============================== */
+
 @media (max-width: 991px) {
-    .navbar-nav .nav-link {
-        border-radius: 12px;
-    }
-}
+  .navbar-collapse {
+    background: linear-gradient(
+      180deg,
+      #3b2414,
+      #2a180f
+    ) !important;
 
+    padding: 1rem !important;
+  }
+}
 
 </style>
 <header>

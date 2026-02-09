@@ -6,6 +6,131 @@ Delete Product
 
 {% block content %}
 
+<style>
+    /* ===============================
+   DELETE PRODUCT PAGE WRAPPER
+   =============================== */
+
+    #delete-product-section {
+        background: linear-gradient(135deg, #fff5f5, #fffafa) !important;
+        border-radius: 26px !important;
+        padding: 2.8rem !important;
+    }
+
+    /* ===============================
+   CARD CONTAINER
+   =============================== */
+
+    .delete-product-card {
+        border-radius: 26px !important;
+        border: none !important;
+        background: #ffffff !important;
+        box-shadow: 0 22px 55px rgba(0, 0, 0, 0.18) !important;
+        overflow: hidden !important;
+    }
+
+    /* Subtle danger accent bar */
+    .delete-product-card::before {
+        content: "" !important;
+        display: block !important;
+        height: 6px !important;
+        width: 100% !important;
+        background: linear-gradient(90deg, #d32f2f, #f44336) !important;
+    }
+
+    /* ===============================
+   HEADING
+   =============================== */
+
+    .delete-product-card h4 {
+        font-weight: 800 !important;
+        letter-spacing: 0.4px !important;
+    }
+
+    /* ===============================
+   PRODUCT THUMBNAIL
+   =============================== */
+
+    .delete-product-thumbnail {
+        border-radius: 18px !important;
+        border: 1px solid #eee !important;
+        background: #000 !important;
+        padding: 6px !important;
+        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.35) !important;
+        transition: transform 0.35s ease !important;
+    }
+
+    .delete-product-thumbnail:hover {
+        transform: scale(1.04) !important;
+    }
+
+    /* ===============================
+   PRODUCT DETAILS
+   =============================== */
+
+    .delete-product-card h5 {
+        font-weight: 700 !important;
+    }
+
+    .delete-product-card p {
+        line-height: 1.6 !important;
+    }
+
+    /* Warning text */
+    .delete-product-card .text-danger.small {
+        background: rgba(244, 67, 54, 0.08) !important;
+        padding: 10px 14px !important;
+        border-radius: 12px !important;
+    }
+
+    /* ===============================
+   DIVIDER
+   =============================== */
+
+    .delete-product-card hr {
+        border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+    }
+
+    /* ===============================
+   FORM & BUTTONS
+   =============================== */
+
+    .delete-product-card form {
+        margin-top: 1rem !important;
+    }
+
+    .delete-product-card .btn-danger {
+        background: linear-gradient(135deg, #c62828, #e53935) !important;
+        border: none !important;
+        font-weight: 600 !important;
+        padding: 10px 26px !important;
+        border-radius: 18px !important;
+    }
+
+    .delete-product-card .btn-danger:hover {
+        background: linear-gradient(135deg, #d32f2f, #f44336) !important;
+    }
+
+    .delete-product-card .btn-secondary {
+        border-radius: 18px !important;
+        padding: 10px 26px !important;
+    }
+
+    /* ===============================
+   MOBILE OPTIMIZATION
+   =============================== */
+
+    @media (max-width: 768px) {
+        #delete-product-section {
+            padding: 1.6rem !important;
+        }
+
+        .delete-product-thumbnail {
+            margin-bottom: 1rem !important;
+        }
+    }
+</style>
+
 <section id="delete-product-section" class="container py-5">
     <div class="row justify-content-center">
 
@@ -22,9 +147,8 @@ Delete Product
 
                         <!-- Product Thumbnail -->
                         <div class="col-md-4">
-                            <img src="{{ product.thumbnail.url }}"
-                                 class="img-fluid delete-product-thumbnail"
-                                 alt="{{ product.title }}">
+                            <img src="{{ product.thumbnail.url }}" class="img-fluid delete-product-thumbnail"
+                                alt="{{ product.title }}">
                         </div>
 
                         <!-- Product Details -->
@@ -57,8 +181,7 @@ Delete Product
                         <button type="submit" class="btn btn-danger">
                             Delete Product
                         </button>
-                        <a href="{% url 'product_details' product.pk %}" 
-                           class="btn btn-secondary">
+                        <a href="{% url 'product_details' product.pk %}" class="btn btn-secondary">
                             Cancel
                         </a>
                     </form>
