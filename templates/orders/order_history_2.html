@@ -8,224 +8,218 @@ Order History
 {% block content %}
 
 <style>
-/* ===============================
-   ORDER HISTORY PAGE
+
+/* ================================
+   PAGE CONTAINER
 ================================ */
 
-/* Container */
 .container {
-    max-width: 1100px !important;
+    max-width: 1100px;
 }
 
-/* Title */
-.container > h2 {
-    font-weight: 600 !important;
-    color: #2c3e50 !important;
+/* ================================
+   PAGE TITLE
+================================ */
+
+.container h2 {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    color: #2a2a2a;
+    margin-bottom: 10px;
 }
 
-/* Divider */
-.container > hr {
-    border-top: 2px solid #e0e0e0 !important;
+.container hr {
+    border-color: #e6e0da;
+    margin-bottom: 30px;
 }
 
-/* ===============================
+/* ================================
    ORDER CARD
 ================================ */
 
-.container .card {
-    border: none !important;
-    border-radius: 12px !important;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08) !important;
-    overflow: hidden !important;
+.card {
+    border-radius: 18px;
+    border: 1px solid #ece6df;
+    background: linear-gradient(180deg, #ffffff, #faf7f4);
+    box-shadow: 0 22px 40px rgba(0,0,0,0.08);
+    overflow: hidden;
 }
 
-/* Card header */
-.container .card .card-header {
-    background: linear-gradient(135deg, #6c757d, #495057) !important;
-    font-weight: 500 !important;
-    font-size: 14px !important;
-    padding: 14px 18px !important;
-}
-
-/* Header text */
-.container .card .card-header span {
-    white-space: nowrap !important;
-}
-
-/* Card body */
-.container .card .card-body {
-    padding: 20px !important;
-}
-
-/* Order summary text */
-.container .card .card-body > p {
-    font-size: 14px !important;
-    margin-bottom: 6px !important;
-    color: #555 !important;
-}
-
-.container .card .card-body > p strong {
-    color: #000 !important;
-}
-
-/* ===============================
-   ORDERED ITEMS
+/* ================================
+   CARD HEADER
 ================================ */
 
-.container .ordered-items {
-    margin-top: 15px !important;
+.card-header {
+    background: linear-gradient(135deg, #c89b63, #e4b873);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    padding: 14px 18px;
+    border-bottom: none;
 }
 
-/* Single item row */
-.container .ordered-items > div {
-    padding: 10px !important;
-    border-radius: 10px !important;
-    transition: background 0.3s ease !important;
+/* ================================
+   CARD BODY
+================================ */
+
+.card-body {
+    padding: 26px 22px;
 }
 
-.container .ordered-items > div:hover {
-    background-color: #f8f9fa !important;
+/* ================================
+   ORDER INFO
+================================ */
+
+.card-body p {
+    font-size: 14px;
+    color: #5f5f5f;
+    margin-bottom: 6px;
 }
 
-/* Thumbnail */
-.container .ordered-items .thumbnail img {
-    width: 80px !important;
-    height: 80px !important;
-    border-radius: 8px !important;
-    border: 1px solid #ddd !important;
+.card-body p strong {
+    color: #2a2a2a;
+    font-weight: 600;
 }
 
-/* Item details */
-.container .ordered-items .item-details p {
-    font-size: 13px !important;
-    margin-bottom: 4px !important;
-    color: #444 !important;
+/* ================================
+   ORDERED ITEMS SECTION
+================================ */
+
+.ordered-items {
+    background: #fdfbf9;
+    border-radius: 14px;
+    padding: 18px;
+    border: 1px solid #eee6dd;
 }
 
-/* Product name */
-.container .ordered-items .item-details a {
-    font-size: 14px !important;
-    color: #212529 !important;
+/* ================================
+   ITEM ROW
+================================ */
+
+.ordered-items .d-flex {
+    align-items: center;
 }
 
-.container .ordered-items .item-details a:hover {
-    color: #0d6efd !important;
+/* thumbnail */
+.thumbnail img {
+    border-radius: 12px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.08);
 }
 
-/* Divider */
-.container .ordered-items hr {
-    margin: 10px 0 !important;
-    border-top: 1px dashed #ddd !important;
+/* item details */
+.item-details p {
+    font-size: 13px;
+    color: #6f6f6f;
+    margin-bottom: 4px;
 }
 
-/* ===============================
+.item-details strong {
+    font-size: 14px;
+    color: #2a2a2a;
+}
+
+/* item link */
+.item-details a {
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+.item-details a:hover {
+    color: #c89b63;
+}
+
+/* divider */
+.ordered-items hr {
+    border-color: #e6dfd7;
+    margin: 14px 0;
+}
+
+/* ================================
    CARD FOOTER
 ================================ */
 
-.container .card .card-footer {
-    background-color: #f9fafb !important;
-    padding: 14px 18px !important;
-    border-top: 1px solid #eee !important;
+.card-footer {
+    background: #ffffff;
+    border-top: 1px solid #eee6dd;
+    padding: 14px 18px;
 }
 
-/* Buttons */
-.container .card .btn {
-    font-size: 13px !important;
-    padding: 6px 16px !important;
-    border-radius: 6px !important;
-    font-weight: 500 !important;
-}
-
-/* Pay now */
-.container .card .btn-success {
-    background: linear-gradient(135deg, #28a745, #20c997) !important;
-    border: none !important;
-}
-
-.container .card .btn-success:hover {
-    transform: translateY(-1px) !important;
-    box-shadow: 0 6px 15px rgba(40, 167, 69, 0.4) !important;
-}
-
-/* View details */
-.container .card .btn-info {
-    background: linear-gradient(135deg, #0dcaf0, #0d6efd) !important;
-    border: none !important;
-    color: #fff !important;
-}
-
-/* ===============================
-   BANNER
+/* ================================
+   BUTTONS
 ================================ */
 
-.container .banner {
-    text-align: center !important;
-    margin: 30px 0 !important;
+.card-footer .btn {
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 7px 14px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.container .banner .btn {
-    padding: 10px 30px !important;
-    border-radius: 30px !important;
-    font-weight: 500 !important;
+/* Pay Now */
+.btn-success {
+    background: linear-gradient(135deg, #6fcf97, #27ae60);
+    border: none;
 }
 
-/* ===============================
+.btn-success:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(39,174,96,0.35);
+}
+
+/* View Details */
+.btn-info {
+    background: linear-gradient(135deg, #56ccf2, #2f80ed);
+    border: none;
+    color: #ffffff;
+}
+
+.btn-info:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(47,128,237,0.35);
+}
+
+/* ================================
+   SHOP MORE BANNER
+================================ */
+
+.banner {
+    text-align: center;
+    margin: 50px 0 10px;
+}
+
+.banner .btn-success {
+    padding: 12px 26px;
+    font-size: 15px;
+    border-radius: 14px;
+}
+
+/* ================================
    EMPTY STATE
 ================================ */
 
-.container .alert {
-    font-size: 15px !important;
-    border-radius: 8px !important;
+.alert-warning {
+    border-radius: 14px;
+    background: #fff8e6;
+    border: 1px solid #f1dfb3;
+    color: #8a6d3b;
 }
 
-/* ===============================
-   MEDIA QUERIES
+/* ================================
+   RESPONSIVE
 ================================ */
 
 @media (max-width: 768px) {
-
-    /* Header stacking */
-    .container .card .card-header {
-        flex-direction: column !important;
-        gap: 6px !important;
-        text-align: center !important;
+    .card-header {
+        flex-direction: column;
+        gap: 6px;
+        text-align: center;
     }
 
-    /* Ordered item layout */
-    .container .ordered-items > div {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-    }
-
-    .container .ordered-items .thumbnail {
-        margin-bottom: 10px !important;
-    }
-
-    /* Footer buttons */
-    .container .card .card-footer {
-        flex-direction: column !important;
-        gap: 10px !important;
-    }
-}
-
-@media (max-width: 480px) {
-
-    /* Smaller text */
-    .container > h2 {
-        font-size: 20px !important;
-    }
-
-    .container .card .card-header span {
-        font-size: 13px !important;
-    }
-
-    .container .ordered-items .item-details p {
-        font-size: 12px !important;
-    }
-
-    .container .card .btn {
-        width: 100% !important;
-        text-align: center !important;
+    .ordered-items {
+        padding: 14px;
     }
 }
 
