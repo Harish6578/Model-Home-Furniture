@@ -1,4 +1,139 @@
 {% if razorpay_order %}
+<style>
+    /* =====================================
+   PAYMENT SECTION – BASE
+===================================== */
+
+.payment-section {
+    background: linear-gradient(180deg, #fcfbf9, #f4efe9);
+    border-radius: 18px;
+    padding: 30px 28px;
+    border: 1px solid #e7e1db;
+    margin-top: 30px;
+    position: relative;
+}
+
+/* subtle top accent */
+.payment-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 120px;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #c89b63,
+        transparent
+    );
+    transform: translateX(-50%);
+}
+
+/* =====================================
+   HEADING
+===================================== */
+
+.payment-section h4 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2a2a2a;
+    margin-bottom: 18px;
+    letter-spacing: 0.4px;
+    text-align: center;
+}
+
+/* =====================================
+   PAYMENT FORM
+===================================== */
+
+#payment-form {
+    display: flex;
+    justify-content: center;
+}
+
+/* =====================================
+   RAZORPAY BUTTON STYLE
+===================================== */
+
+/* Razorpay injects a button, style it safely */
+.razorpay-payment-button {
+    background: linear-gradient(135deg, #e4b873, #c89b63) !important;
+    border: none !important;
+    border-radius: 14px !important;
+    padding: 14px 28px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    letter-spacing: 0.4px !important;
+    cursor: pointer !important;
+    box-shadow: 0 14px 28px rgba(200,155,99,0.35) !important;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+/* hover */
+.razorpay-payment-button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 20px 40px rgba(200,155,99,0.45) !important;
+}
+
+/* active press */
+.razorpay-payment-button:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 10px 22px rgba(200,155,99,0.35) !important;
+}
+
+/* focus */
+.razorpay-payment-button:focus {
+    outline: 2px solid rgba(200,155,99,0.5) !important;
+    outline-offset: 4px !important;
+}
+
+/* =====================================
+   SECURITY NOTE (OPTIONAL TEXT)
+===================================== */
+
+.payment-section::after {
+    content: "🔒 Secure payment powered by Razorpay";
+    display: block;
+    margin-top: 18px;
+    text-align: center;
+    font-size: 13px;
+    color: #7a7a7a;
+    letter-spacing: 0.3px;
+}
+
+/* =====================================
+   ERROR MESSAGE
+===================================== */
+
+.text-danger {
+    font-size: 14px;
+    font-weight: 500;
+    background: #fff4f4;
+    border: 1px solid #f0caca;
+    padding: 12px 16px;
+    border-radius: 10px;
+    color: #b02a37 !important;
+}
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 576px) {
+    .payment-section {
+        padding: 24px 20px;
+    }
+
+    .razorpay-payment-button {
+        width: 100% !important;
+    }
+}
+
+</style>
 <div class="payment-section mt-4">
     <h4>Proceed to Payment</h4>
     <form id="payment-form" method="post" action="{% url 'payment_success' %}">
