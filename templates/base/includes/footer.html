@@ -1,42 +1,75 @@
-<footer class="site-footer">
-    <div class="footer-container">
-      <style>
-         /* ================= FOOTER ================= */
+     <style>
+    
+/* ================================
+   SITE FOOTER – BASE
+================================ */
+
 .site-footer {
-    background: linear-gradient(135deg, #565453, #6e533b, #6f3c0f);
-    color: #ffffff;
-    padding: 60px 20px 20px;
+    background: #faf8f6;
+    border-top: 1px solid #e9e4df;
+    padding: 60px 20px 0;
+    font-family: inherit;
 }
 
-/* Container */
+/* ================================
+   FOOTER CONTAINER
+================================ */
+
 .footer-container {
     max-width: 1200px;
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 80px;
+    padding-bottom: 40px;
 }
 
-/* Columns */
+/* ================================
+   FOOTER COLUMNS
+================================ */
+
 .footer-col h4 {
-    font-size: 1.1rem;
+    font-size: 16px;
+    font-weight: 600;
+    color: #2a2a2a;
     margin-bottom: 16px;
-    position: relative;
 }
 
-.footer-col h4::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 40px;
-    height: 3px;
-    background: #ff6200;
-    border-radius: 5px;
+/* ================================
+   BRAND LOGO
+================================ */
+
+.footer-logo {
+    font-size: 26px;
+    font-weight: 700;
+    color: #2a2a2a;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
 }
+
+.footer-logo span {
+    color: #c89b63;
+}
+
+/* ================================
+   FOOTER TEXT
+================================ */
+
+.footer-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #6f6f6f;
+    max-width: 360px;
+}
+
+/* ================================
+   LINKS
+================================ */
 
 .footer-col ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .footer-col ul li {
@@ -44,101 +77,60 @@
 }
 
 .footer-col ul li a {
-    color: #d1ecf1;
     text-decoration: none;
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
+    font-size: 14px;
+    color: #555;
+    transition: color 0.3s ease, padding-left 0.3s ease;
 }
 
 .footer-col ul li a:hover {
-    color: #090909;
+    color: #c89b63;
     padding-left: 6px;
 }
 
-/* Brand */
-.footer-logo {
-    font-size: 1.9rem;
-    font-weight: 800;
-}
+/* ================================
+   FOOTER BOTTOM
+================================ */
 
-.footer-logo span {
-    color: #ff5500;
-}
-
-.footer-text {
-    margin-top: 12px;
-    font-size: 0.95rem;
-    line-height: 1.7;
-    color: #d6f6ff;
-}
-
-/* Social Icons */
-.footer-social {
-    display: flex;
-    gap: 12px;
-    margin-top: 12px;
-}
-
-.footer-social a {
-    width: 38px;
-    height: 38px;
-    background: rgba(255,255,255,0.12);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    color: #fff;
-    transition: all 0.3s ease;
-}
-
-.footer-social a:hover {
-    background: #ff6600;
-    color: #000;
-    transform: translateY(-4px);
-}
-
-/* Bottom */
 .footer-bottom {
+    border-top: 1px solid #e5e0db;
+    padding: 18px 20px;
     text-align: center;
-    margin-top: 40px;
-    padding-top: 15px;
-    border-top: 1px solid rgba(255,255,255,0.15);
-    font-size: 0.9rem;
-    color: #ccefff;
 }
 
-/* ================= MEDIA QUERIES ================= */
-
-/* Tablets */
-@media (max-width: 992px) {
-    .footer-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 40px;
-    }
+.footer-bottom p {
+    font-size: 13px;
+    color: #8a8a8a;
+    margin: 0;
 }
 
-/* Mobile */
-@media (max-width: 576px) {
-    .site-footer {
-        padding: 40px 15px 15px;
-    }
+/* ================================
+   RESPONSIVE
+================================ */
 
+@media (max-width: 768px) {
     .footer-container {
         grid-template-columns: 1fr;
+        gap: 40px;
         text-align: center;
     }
 
-    .footer-col h4::after {
-        left: 50%;
-        transform: translateX(-50%);
+    .footer-text {
+        margin: auto;
     }
 
-    .footer-social {
-        justify-content: center;
+    .footer-col ul li a:hover {
+        padding-left: 0;
     }
 }
 
+
       </style>
+
+
+<footer class="site-footer">
+    <div class="footer-container">
+ 
 
         <!-- Brand -->
         <div class="footer-col">
@@ -148,38 +140,14 @@
                 Quality, comfort, and value—delivered to your door.
             </p>
         </div>
-
         <!-- Links -->
         <div class="footer-col">
             <h4>Quick Links</h4>
             <ul>
                 <li><a href="{% url 'home_page' %}">Home</a></li>
-                <li><a href="#">Shop</a></li>
-                <li><a href="#">Cart</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="{% url 'products' %}">Shop</a></li>
+                <li><a href="{% url 'about_page' %}">About</a></li>
             </ul>
-        </div>
-
-        <!-- Support -->
-        <div class="footer-col">
-            <h4>Support</h4>
-            <ul>
-                <li><a href="#">Help Center</a></li>
-                <li><a href="#">Returns</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms & Conditions</a></li>
-            </ul>
-        </div>
-
-        <!-- Social -->
-        <div class="footer-col">
-            <h4>Follow Us</h4>
-            <div class="footer-social">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-x-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            </div>
         </div>
 
     </div>

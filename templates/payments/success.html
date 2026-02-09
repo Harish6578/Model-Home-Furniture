@@ -1,6 +1,141 @@
 {% extends "base/base.html" %}
 
 {% block content %}
+
+
+<style>
+
+  /* =====================================
+   SUCCESS PAGE – BACKGROUND
+===================================== */
+
+.min-vh-75 {
+    min-height: 75vh;
+    background:
+        radial-gradient(circle at top, #f9fbf7, #f3f7f2);
+}
+
+/* =====================================
+   SUCCESS CARD
+===================================== */
+
+.card {
+    border-radius: 20px;
+    border: 1px solid #e4efe6;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+/* soft celebration glow */
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at top,
+        rgba(76, 175, 80, 0.12),
+        transparent 60%
+    );
+    pointer-events: none;
+}
+
+/* =====================================
+   CARD BODY
+===================================== */
+
+.card-body {
+    padding: 32px 28px;
+}
+
+/* =====================================
+   SUCCESS TITLE
+===================================== */
+
+.text-success {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    color: #2e7d32 !important;
+    position: relative;
+}
+
+/* subtle underline */
+.text-success::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        #4caf50,
+        #81c784
+    );
+    margin: 12px auto 0;
+    border-radius: 2px;
+}
+
+/* =====================================
+   ORDER NUMBER
+===================================== */
+
+.fw-bold {
+    font-size: 15px;
+    color: #2f3b2f;
+    letter-spacing: 0.3px;
+}
+
+/* =====================================
+   THANK YOU TEXT
+===================================== */
+
+.card-body p {
+    font-size: 14px;
+    color: #6f7f72;
+    line-height: 1.7;
+}
+
+/* =====================================
+   ACTION BUTTON
+===================================== */
+
+.btn-primary {
+    background: linear-gradient(135deg, #66bb6a, #43a047);
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 12px;
+    letter-spacing: 0.4px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(76,175,80,0.35);
+}
+
+/* focus */
+.btn-primary:focus {
+    outline: 2px solid rgba(76,175,80,0.4);
+    outline-offset: 3px;
+}
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 576px) {
+    .card-body {
+        padding: 26px 22px;
+    }
+
+    .text-success {
+        font-size: 24px;
+    }
+}
+  
+</style>
 <div class="container d-flex justify-content-center align-items-center min-vh-75 py-5">
 
     <div class="card shadow text-center p-4" style="max-width: 500px; width: 100%;">

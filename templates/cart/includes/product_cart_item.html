@@ -1,3 +1,153 @@
+<style>
+    /* =====================================
+   CART ITEM – BASE
+===================================== */
+
+.cart-item {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #ece6df;
+    padding: 18px;
+    margin-bottom: 18px;
+    transition: box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.cart-item:hover {
+    border-color: #d9c4a6;
+    box-shadow: 0 22px 45px rgba(0,0,0,0.08);
+}
+
+/* =====================================
+   PRODUCT IMAGE
+===================================== */
+
+.cart-thumb img {
+    max-height: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+/* =====================================
+   PRODUCT TITLE
+===================================== */
+
+.cart-product-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: #2a2a2a;
+    margin-bottom: 6px;
+}
+
+.cart-product-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.cart-product-title a:hover {
+    color: #c89b63;
+}
+
+/* =====================================
+   PRODUCT DESCRIPTION
+===================================== */
+
+.cart-product-desc {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #777;
+    margin-bottom: 8px;
+}
+
+/* =====================================
+   PRICE
+===================================== */
+
+.cart-price {
+    font-size: 15px;
+    font-weight: 600;
+    color: #3a3a3a;
+    margin-bottom: 12px;
+}
+
+/* =====================================
+   CART CONTROLS
+===================================== */
+
+.cart-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* quantity display */
+.cart-qty {
+    min-width: 32px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #2a2a2a;
+}
+
+/* qty buttons */
+.qty-minus,
+.qty-plus {
+    border-radius: 8px;
+    padding: 4px 10px;
+    transition: all 0.25s ease;
+}
+
+.qty-minus:hover,
+.qty-plus:hover {
+    background: #2a2a2a;
+    color: #ffffff;
+    border-color: #2a2a2a;
+}
+
+/* remove button */
+.remove-item {
+    border-radius: 8px;
+    padding: 5px 12px;
+    font-size: 13px;
+    transition: background-color 0.3s ease;
+}
+
+.remove-item:hover {
+    background-color: #b63a2b;
+}
+
+/* =====================================
+   SUBTOTAL
+===================================== */
+
+.cart-subtotal {
+    font-size: 17px;
+    font-weight: 700;
+    color: #2a2a2a;
+}
+
+/* subtle divider on desktop */
+@media (min-width: 768px) {
+    .cart-subtotal {
+        border-left: 1px solid #eee4d8;
+        padding-left: 20px;
+    }
+}
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 768px) {
+    .cart-thumb img {
+        max-height: 90px;
+    }
+
+    .cart-subtotal {
+        margin-top: 12px;
+        font-size: 16px;
+    }}
+</style>
 <div class="cart-item card shadow-sm"
      data-product-id="{{ item.product.id }}">
 
