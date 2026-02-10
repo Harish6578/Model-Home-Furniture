@@ -5,18 +5,192 @@
 {% endblock %}
 
 {% block content %}
+<style>
+    /* =====================================
+   ADDRESS SELECTION WRAPPER
+===================================== */
+
+.select-address {
+    max-width: 760px;
+    margin: 50px auto;
+    padding: 32px;
+    background: linear-gradient(180deg, #ffffff, #f9fafb);
+    border-radius: 22px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Heading */
+.select-address h3 {
+    font-size: 22px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 28px;
+    color: #111827;
+}
+
+/* Address list */
+.select-address ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Address item */
+.select-address li {
+    margin-bottom: 16px;
+}
+
+/* Hide default radio */
+.select-address input[type="radio"] {
+    display: none;
+}
+
+/* Label as card */
+.select-address label {
+    display: block;
+    padding: 18px 20px;
+    border-radius: 16px;
+    border: 2px solid #e5e7eb;
+    background: linear-gradient(135deg, #ffffff, #f3f4f6);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #1f2937;
+}
+
+/* Hover */
+.select-address label:hover {
+    border-color: #6366f1;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 26px rgba(99, 102, 241, 0.18);
+}
+
+/* Selected */
+.select-address input[type="radio"]:checked + label {
+    border-color: #22c55e;
+    background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+    box-shadow: 0 12px 30px rgba(34, 197, 94, 0.25);
+}
+
+/* Checkmark indicator */
+.select-address label::after {
+    content: "✓";
+    position: absolute;
+    right: 18px;
+    top: 18px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #22c55e;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.3s ease;
+}
+
+/* Show check on select */
+.select-address input[type="radio"]:checked + label::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Buttons */
+.select-address button,
+.select-address a.btn {
+    display: block;
+    width: 100%;
+    margin-top: 18px;
+    padding: 14px;
+    border-radius: 40px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    transition: all 0.3s ease;
+}
+
+/* Primary */
+.select-address .btn-primary {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    border: none;
+}
+
+.select-address .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(79, 70, 229, 0.35);
+}
+
+/* Secondary */
+.select-address .btn-secondary {
+    background: linear-gradient(135deg, #6b7280, #374151);
+    border: none;
+}
+
+.select-address .btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(55, 65, 81, 0.35);
+}
+
+/* =====================================
+   MOBILE FRIENDLY
+===================================== */
+
+@media (max-width: 600px) {
+
+    .select-address {
+        margin: 24px;
+        padding: 24px;
+    }
+
+    .select-address label {
+        font-size: 13px;
+        padding: 16px;
+    }
+}
+input[type="radio"]:checked + label {
+    border-color: #22c55e;
+}
+.select-address label::after {
+    content: "✓";
+    position: absolute;
+    right: 18px;
+    top: 18px;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.3s ease;
+}
+
+.select-address label:has(input[type="radio"]:checked)::after {
+    opacity: 1;
+    transform: scale(1);
+}
+.select-address label:has(input[type="radio"]:checked) {
+    border-color: #22c55e;
+    background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+    box-shadow: 0 12px 30px rgba(34, 197, 94, 0.25);
+}
+
+
+
+</style>
 <div class="select-address">
     <form method="post">
         {% csrf_token %}
         <h3>Select an Address</h3>
         <ul>
             {% for address in addresses %}
-            <li>
-                <label>
-                    <input type="radio" name="address" value="{{ address.id }}">
-                    {{ address.full_name }}, {{ address.address_line1 }}, {{ address.city }}, {{ address.state }} - {{address.pincode }}
-                </label>
-            </li>
+           <li>
+    <input type="radio" id="addr{{ address.id }}" name="address" value="{{ address.id }}">
+    <label for="addr{{ address.id }}">
+        {{ address.full_name }}, {{ address.address_line1 }},
+        {{ address.city }}, {{ address.state }} - {{ address.pincode }}
+    </label>
+</li>
+
             {% endfor %}
         </ul>
         <button type="submit" class="btn btn-primary">Select Address</button>

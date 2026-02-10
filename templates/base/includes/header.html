@@ -6,11 +6,11 @@
    NAVBAR TOGGLER (BUTTON ONLY)
    =============================== */
 
-   .navbar {
+  .navbar {
     position: fixed;
     top: 0;
     width: 100vw;
-   }
+  }
 
   .navbar .navbar-toggler {
     border: 1px solid rgba(255, 215, 168, 0.6) !important;
@@ -141,7 +141,7 @@
   .navbar-search {
     max-width: 520px;
     /* ⬅ CHANGE WIDTH HERE */
-    margin:auto;
+    margin: auto;
   }
 
   /* Input */
@@ -350,69 +350,74 @@
       font-size: 18px;
     }
   }
-/* ================= NAVBAR GLOBAL SPACING ================= */
 
-/* Left nav links: Home, About, Manage */
-.navbar-nav {
-    gap: 28px; /* ⬅ change gap between Home / About */
-}
+  /* ================= NAVBAR GLOBAL SPACING ================= */
 
-/* Individual nav links */
-.navbar-nav ,.nav-link {
+  /* Left nav links: Home, About, Manage */
+  .navbar-nav {
+    gap: 28px;
+    /* ⬅ change gap between Home / About */
+  }
+
+  /* Individual nav links */
+  .navbar-nav,
+  .nav-link {
     padding: 8px 6px;
     font-weight: 600;
-}
+  }
 
-/* ================= SEARCH BAR SPACING ================= */
+  /* ================= SEARCH BAR SPACING ================= */
 
-.navbar-search {
-   margin: auto;  /* gap from left menu */
-   margin: auto;  /* gap before cart */
-}
+  .navbar-search {
+    margin: auto;
+    /* gap from left menu */
+    margin: auto;
+    /* gap before cart */
+  }
 
-/* ================= RIGHT SIDE (CART + ACCOUNT) ================= */
+  /* ================= RIGHT SIDE (CART + ACCOUNT) ================= */
 
-.navbar-nav.ms-auto {
-    gap: 20px; /* ⬅ gap between cart and account */
-}
+  .navbar-nav.ms-auto {
+    gap: 20px;
+    /* ⬅ gap between cart and account */
+  }
 
-/* Cart icon spacing */
-.navbar-nav .nav-item.me-3 {
-    margin-right: 0 !important; /* remove Bootstrap default */
-}
+  /* Cart icon spacing */
+  .navbar-nav .nav-item.me-3 {
+    margin-right: 0 !important;
+    /* remove Bootstrap default */
+  }
 
-/* Account dropdown spacing */
-.navbar .dropdown {
+  /* Account dropdown spacing */
+  .navbar .dropdown {
     margin-left: 8px;
-}
+  }
 
-/* ================= CART BADGE POSITION (OPTIONAL FIX) ================= */
+  /* ================= CART BADGE POSITION (OPTIONAL FIX) ================= */
 
-.cart-badge {
+  .cart-badge {
     top: -6px;
     right: -8px;
-}
+  }
 
-/* ================= RESPONSIVE ================= */
+  /* ================= RESPONSIVE ================= */
 
-@media (max-width: 992px) {
+  @media (max-width: 992px) {
+
     /* Stack spacing when collapsed */
-    .navbar-nav,.nav-link {
-        gap: 8px;
+    .navbar-nav,
+    .nav-link {
+      gap: 8px;
     }
 
     .navbar-search {
-        margin: 12px 0;
+      margin: 12px 0;
     }
 
     .navbar-nav.ms-auto {
-        gap: 10px;
+      gap: 10px;
     }
-}
-
-
-
-  
+  }
 </style>
 {% load static %}
 
@@ -480,8 +485,11 @@
             <a class="nav-link" href="{% url 'view_cart' %}">
               <i class="bi bi-cart3 fs-4"></i>
               {% if user.is_authenticated %}
-              <span class="cart-badge" id="cart-count">0</span>
+              <span class="cart-badge" id="cart-count">
+                {{ cart_count|default:0 }}
+              </span>
               {% endif %}
+
             </a>
           </li>
           {% endif %}
