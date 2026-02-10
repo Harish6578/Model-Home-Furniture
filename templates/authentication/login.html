@@ -10,170 +10,188 @@ Login
 ===================================== */
 
 /* Section background */
-section {
-    min-height: 100vh !important;
-    background: radial-gradient(circle at top, #f7b186, #170c02) !important;
-    display: flex !important;
-    align-items: center !important;
+/* ================================
+   SECTION
+================================ */
 
+section {
+    min-height: 88.6vh;
+    background: radial-gradient(circle at top, #f7b186, #170c02);
+    display: flex;
+    align-items: center;
 }
 
 /* Container */
 section .container {
-    max-width: 1200px !important;
+    max-width: 1200px;
 }
 
-/* Card */
+/* ================================
+   CARD
+================================ */
+
 section .card {
-    background: rgba(255, 255, 255, 0.06) !important;
-    backdrop-filter: blur(12px) !important;
-    border-radius: 22px !important;
-    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    border-radius: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
     box-shadow:
         0 20px 45px rgba(0, 0, 0, 0.7),
-        inset 0 0 0 1px rgba(250, 204, 21, 0.35) !important;
+        inset 0 0 0 1px rgba(250, 204, 21, 0.35);
 }
 
 /* Card body */
 section .card .card-body {
-    padding: 32px !important;
+    padding: 32px;
 }
 
 /* Heading */
 section .card h3 {
-    font-size: 26px !important;
-    font-weight: 800 !important;
-    letter-spacing: 1px !important;
-    text-transform: uppercase !important;
-    color: #0e0e0e !important;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #0e0e0e;
 }
 
-/* Alert */
+/* ================================
+   ALERT
+================================ */
+
 section .alert {
-    background: linear-gradient(135deg, #7f1d1d, #dc2626) !important;
-    color: #fff !important;
-    border: none !important;
-    border-radius: 12px !important;
-    font-size: 14px !important;
+    background: linear-gradient(135deg, #7f1d1d, #dc2626);
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
 }
 
-/* =====================================
-   FORM FIELDS
-===================================== */
+/* ================================
+   FORM
+================================ */
 
 section form {
-    margin-top: 20px !important;
-}
-
-/* Inputs */
-section form input,
-section form select {
-    background: rgba(255, 255, 255, 0.12) !important;
-    border: 1px solid rgba(250, 204, 21, 0.4) !important;
-    border-radius: 14px !important;
-    padding: 12px 14px !important;
-    font-size: 14px !important;
-    color: #f8fafc !important;
-    transition: all 0.3s ease !important;
-}
-
-/* Placeholder */
-section form input::placeholder {
-    color: #9ca3af !important;
-}
-
-/* Focus */
-section form input:focus {
-    outline: none !important;
-    border-color: #6483f4 !important;
-    box-shadow: 0 0 0 2px rgba(41, 5, 242, 0.5) !important;
+    margin-top: 20px;
 }
 
 /* Labels */
 section form label {
-    font-size: 13px !important;
-    font-weight: 600 !important;
-    color: #faf9f8 !important;
-    margin-bottom: 6px !important;
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #faf9f8;
+    margin-bottom: 6px;
 }
 
-/* =====================================
-   LOGIN BUTTON
-===================================== */
+/* Inputs & Select */
+section form input,
+section form select {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(250, 204, 21, 0.4);
+    border-radius: 14px;
+    padding: 12px 14px;
+    font-size: 14px;
+    color: #f8fafc;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Placeholder */
+section form input::placeholder {
+    color: #9ca3af;
+}
+
+/* Focus */
+section form input:focus,
+section form select:focus {
+    outline: none;
+    border-color: #6483f4;
+    box-shadow: 0 0 0 2px rgba(41, 5, 242, 0.5);
+}
+
+/* ================================
+   BUTTON
+================================ */
 
 section form button {
-    margin-top: 18px !important;
-    padding: 12px !important;
-    border-radius: 30px !important;
-    font-size: 15px !important;
-    font-weight: 700 !important;
-    letter-spacing: 1px !important;
-    border: none !important;
-    background: linear-gradient(135deg, #facc15, #fb7185) !important;
-    color: #020617 !important;
-    transition: all 0.3s ease !important;
+    margin-top: 18px;
+    width: 100%;
+    padding: 12px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border: none;
+    background: linear-gradient(135deg, #facc15, #fb7185);
+    color: #020617;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Hover */
 section form button:hover {
-    transform: translateY(-2px) scale(1.02) !important;
-    box-shadow: 0 12px 30px rgba(250, 204, 21, 0.5) !important;
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(250, 204, 21, 0.5);
 }
 
-/* =====================================
-   LINKS
-===================================== */
+/* ================================
+   LINKS / TEXT
+================================ */
 
 section form p {
-    font-size: 13px !important;
-    color: #e5e7eb !important;
+    margin-top: 12px;
+    font-size: 13px;
+    color: #e5e7eb;
+    text-align: center;
 }
 
 section form p a {
-    color: #0c0a00 !important;
-    font-weight: 700 !important;
-    text-decoration: none !important;
+    color: #0c0a00;
+    font-weight: 700;
+    text-decoration: none;
 }
 
 section form p a:hover {
-    text-decoration: underline !important;
+    text-decoration: underline;
 }
 
-/* =====================================
+/* ================================
    MEDIA QUERIES
-===================================== */
+================================ */
 
 @media (max-width: 768px) {
 
     section {
-        padding: 20px !important;
+        padding: 20px;
     }
 
     section .card .card-body {
-        padding: 26px !important;
+        padding: 26px;
     }
 
     section .card h3 {
-        font-size: 22px !important;
+        font-size: 22px;
     }
 }
 
 @media (max-width: 480px) {
 
     section .card {
-        border-radius: 18px !important;
+        border-radius: 18px;
     }
 
     section .card .card-body {
-        padding: 22px !important;
+        padding: 22px;
     }
 
     section form button {
-        font-size: 14px !important;
+        font-size: 14px;
     }
 }
 
+
 </style>
+
 <section class="p-5">
 <div class="container ">
     <div class="row justify-content-center">
