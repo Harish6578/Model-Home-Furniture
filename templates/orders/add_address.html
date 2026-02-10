@@ -8,156 +8,160 @@ Add Address
 {% block content %}
 
 <style>
-/* ================================
+    /* ================================
    FORM WRAPPER
 ================================ */
 
-form {
-    max-width: 640px;
-    margin: 40px auto;
-    padding: 36px;
-    padding-top: 105px; /* header / navbar spacing */
-    border-radius: 24px;
-    background:
-        linear-gradient(#ffffff, #ffffff) padding-box,
-        linear-gradient(135deg, #f86c01, #fd9002, #f59e0b) border-box;
-    border: 3px solid transparent;
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+.add_address-top{
+    padding: 50px 50px;
 }
+    .address_page {
+        form {
+            max-width: 640px;
+            margin: auto;
+            padding: 36px;
+            border-radius: 24px;
+            background:
+                linear-gradient(#ffffff, #ffffff) padding-box,
+                linear-gradient(135deg, #f86c01, #fd9002, #f59e0b) border-box;
+            border: 3px solid transparent;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+        }
 
-/* ================================
+        /* ================================
    FIELD WRAPPER
 ================================ */
 
-form > p {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 18px;
-}
+        form>p {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 18px;
+        }
 
-/* ================================
+        /* ================================
    LABELS
 ================================ */
 
-form > p > label {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.6px;
-    text-transform: uppercase;
-    color: #1f2937;
-    margin-bottom: 6px;
-}
+        form>p>label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            color: #1f2937;
+            margin-bottom: 6px;
+        }
 
-/* ================================
+        /* ================================
    INPUTS / TEXTAREA / SELECT
 ================================ */
 
-form > p > input,
-form > p > textarea,
-form > p > select {
-    background: transparent;
-    border: 2px solid #c7d2fe;
-    border-radius: 14px;
-    padding: 12px 14px;
-    font-size: 14px;
-    color: #020617;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
+        form>p>input,
+        form>p>textarea,
+        form>p>select {
+            background: transparent;
+            border: 2px solid #c7d2fe;
+            border-radius: 14px;
+            padding: 12px 14px;
+            font-size: 14px;
+            color: #020617;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
 
-/* Placeholder */
-form > p > input::placeholder {
-    color: #94a3b8;
-}
+        /* Placeholder */
+        form>p>input::placeholder {
+            color: #94a3b8;
+        }
 
-/* Focus */
-form > p > input:focus,
-form > p > textarea:focus,
-form > p > select:focus {
-    outline: none;
-    border-color: #6366f1;
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
-}
+        /* Focus */
+        form>p>input:focus,
+        form>p>textarea:focus,
+        form>p>select:focus {
+            outline: none;
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
+        }
 
-/* ================================
+        /* ================================
    ERROR LIST
 ================================ */
 
-form > p > .errorlist {
-    margin-top: 6px;
-    font-size: 12px;
-    color: #dc2626;
-    list-style: none;
-    padding-left: 0;
-}
+        form>p>.errorlist {
+            margin-top: 6px;
+            font-size: 12px;
+            color: #dc2626;
+            list-style: none;
+            padding-left: 0;
+        }
 
-/* ================================
+        /* ================================
    SUBMIT BUTTON
 ================================ */
 
-form > button {
-    margin-top: 22px;
-    padding: 14px;
-    border-radius: 40px;
-    font-size: 15px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    border: none;
-    background: radial-gradient(circle at top, #f7b186, #170c02);
-    color: #ffffff;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+        form>button {
+            margin-top: 22px;
+            padding: 14px;
+            border-radius: 40px;
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            border: none;
+            background: radial-gradient(circle at top, #f7b186, #170c02);
+            color: #ffffff;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-/* Hover */
-form > button:hover {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 16px 40px rgba(99, 102, 241, 0.45);
-}
+        /* Hover */
+        form>button:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 16px 40px rgba(99, 102, 241, 0.45);
+        }
+    }
 
-/* ================================
+    /* ================================
    MEDIA QUERIES
 ================================ */
 
-@media (max-width: 768px) {
+    @media (max-width: 768px) {
 
-    form {
-        padding: 28px;
-        padding-top: 90px;
+        form {
+            padding: 28px;
+            padding-top: 90px;
+        }
+
+        form>p>label {
+            font-size: 11px;
+        }
+
+        form>p>input,
+        form>p>textarea {
+            font-size: 13px;
+        }
     }
 
-    form > p > label {
-        font-size: 11px;
+    @media (max-width: 480px) {
+
+        form {
+            margin: 20px auto;
+            padding: 22px;
+            padding-top: 80px;
+            border-radius: 18px;
+        }
+
+        form>button {
+            width: 100%;
+            font-size: 14px;
+        }
     }
-
-    form > p > input,
-    form > p > textarea {
-        font-size: 13px;
-    }
-}
-
-@media (max-width: 480px) {
-
-    form {
-        margin: 20px auto;
-        padding: 22px;
-        padding-top: 80px;
-        border-radius: 18px;
-    }
-
-    form > button {
-        width: 100%;
-        font-size: 14px;
-    }
-}
-
-
-
 </style>
+<section class="add_address-top">
+<div class="address_page">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Add Address</button>
+    </form>
+</div>
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-success">Add Address</button>
-</form>
-
+</section>
 {% endblock %}

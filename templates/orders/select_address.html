@@ -9,10 +9,12 @@
     /* =====================================
    ADDRESS SELECTION WRAPPER
 ===================================== */
-
+.select-address-top{
+    padding: 150px 150px;
+}
 .select-address {
     max-width: 760px;
-    margin: 50px auto;
+    margin: auto;
     padding: 32px;
     background: linear-gradient(180deg, #ffffff, #f9fafb);
     border-radius: 22px;
@@ -177,6 +179,7 @@ input[type="radio"]:checked + label {
 
 
 </style>
+<section class="select-address-top">
 <div class="select-address">
     <form method="post">
         {% csrf_token %}
@@ -197,5 +200,5 @@ input[type="radio"]:checked + label {
     </form>
     <a href="{% url 'add_address'  %}?next={{request.path}}" class="btn btn-secondary">Add address</a>
 </div>
-
+</section>
 {% endblock %}

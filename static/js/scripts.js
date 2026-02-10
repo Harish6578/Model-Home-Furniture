@@ -177,3 +177,26 @@ if (cartPage) {
   });
 }
 
+
+
+// 
+async function loadCartCount() {
+
+    const cart_count = document.getElementById("cart-count");
+    if (!cart_count) return;
+    
+    const countUrl = cart_count.dataset.countUrl;
+    try {
+        const result = await fetch(countUrl);
+        const data = await result.json();
+        cart_count.innerText = data.cart_count;
+        
+        // Animate the cart count update
+        // animateUpdate(cart_count);
+    }
+    catch (error) {
+        console.error(`Cart count fetch error : ${error}`)
+    }
+}
+
+loadCartCount()
